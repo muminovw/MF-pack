@@ -71,18 +71,18 @@
         >
             <div class="brand-bag">
                 <img src={logo} alt="MF Pack" />
-            </div>
-
-            <span class="brand-divider"></span>
-
-            <div class="brand-text">
-                <div class="brand-name">
-                    <span class="mf">MF</span>
-                    <span class="pack">pack</span>
+                <span class="brand-divider"></span>
+                <div class="brand-text">
+                    <div class="brand-name">
+                        <span class="mf">MF</span>
+                        <span class="pack">pack</span>
+                    </div>
+    
+                    <div class="brand-subtitle">GIFT BAGS</div>
                 </div>
-
-                <div class="brand-subtitle">GIFT BAGS</div>
             </div>
+
+
         </a>
 
         <!-- =====================================================

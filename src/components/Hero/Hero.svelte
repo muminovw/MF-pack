@@ -3,6 +3,7 @@
 
 <script>
 import './Hero.sass'
+import Mainpagefoto from '../../assets/Mainpagefoto.png' 
   // Hero — главный (первый экран) блок лендинга
   // Все тексты локализованы на русский язык
 
@@ -14,7 +15,6 @@ import './Hero.sass'
   export let primaryBtn = { label: 'Узнать цены', href: '#contact' };
   export let secondaryBtn = { label: 'Смотреть цвета', href: '#products' };
 
-  export let image = '/images/hero-bag.jpg';
   export let imageAlt = 'Голографический подарочный пакет';
 
   export let badge = { num: '500+', label: 'довольных клиентов' };
@@ -38,7 +38,7 @@ import './Hero.sass'
     </div>
 
     <div class="hero__visual">
-      <img src={image} alt={imageAlt} loading="eager" />
+      <img src={Mainpagefoto} alt={imageAlt} loading="eager" />
 
       {#if badge}
         <div class="hero__badge">
