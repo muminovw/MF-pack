@@ -1,0 +1,161 @@
+@use "sass:color"
+
+// ==========================================
+// Variables (O'zgaruvchilar)
+// ==========================================
+$tan: #d2b48c
+$primary: #d2b48c
+$text-color: #2c2c2c
+$text-light: #666666
+$bg-color: #fcfbfa
+$white: #ffffff
+$radius: 12px
+$transition: all 0.3s ease
+
+// ==========================================
+// Hero Styles (Sass Indented Syntax)
+// ==========================================
+.hero
+    position: relative
+    background-color: $bg-color
+    padding: 80px 0
+    overflow: hidden
+
+    &__decor
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        pointer-events: none
+        background-image: radial-gradient(circle at 85% 20%, color.change($tan, $alpha: 0.18), transparent 55%)
+
+    &__grid
+        display: grid
+        grid-template-columns: 1fr
+        gap: 40px
+        align-items: center
+        position: relative
+        z-index: 1
+
+        @media (min-width: 992px)
+            grid-template-columns: 1.1fr 0.9fr
+
+    &__content
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+
+    &__eyebrow
+        font-size: 0.9rem
+        font-weight: 600
+        text-transform: uppercase
+        letter-spacing: 1.5px
+        color: color.adjust($tan, $lightness: -15%)
+        margin-bottom: 12px
+
+    &__title
+        font-size: 2.5rem
+        line-height: 1.2
+        font-weight: 700
+        color: $text-color
+        margin-bottom: 20px
+
+        @media (min-width: 768px)
+            font-size: 3.5rem
+
+        em
+            font-style: normal
+            color: color.adjust($tan, $lightness: -10%)
+            background: linear-gradient(120deg, rgba($tan, 0.3) 0%, transparent 100%)
+            padding: 0 6px
+            border-radius: 4px
+
+    &__lead
+        font-size: 1.125rem
+        line-height: 1.6
+        color: $text-light
+        margin-bottom: 32px
+        max-width: 540px
+
+    &__actions
+        display: flex
+        flex-wrap: wrap
+        gap: 16px
+
+    &__visual
+        position: relative
+        width: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+
+        img
+            width: 100%
+            max-width: 500px
+            height: auto
+            border-radius: $radius
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08)
+            object-fit: cover
+
+    &__badge
+        position: absolute
+        bottom: 20px
+        left: 20px
+        background-color: $white
+        padding: 16px 24px
+        border-radius: $radius
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1)
+        display: flex
+        flex-direction: column
+        align-items: center
+        border: 1px solid rgba($tan, 0.3)
+        z-index: 2
+
+        &-num
+            font-size: 1.75rem
+            font-weight: 800
+            color: color.adjust($tan, $lightness: -20%)
+
+        &-label
+            font-size: 0.85rem
+            color: $text-light
+            text-transform: lowercase
+
+// ==========================================
+// General Layout & Buttons
+// ==========================================
+.wrap
+    max-width: 1200px
+    margin: 0 auto
+    padding: 0 20px
+
+.btn
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    padding: 14px 28px
+    font-size: 1rem
+    font-weight: 600
+    border-radius: $radius
+    text-decoration: none
+    transition: $transition
+    cursor: pointer
+
+    &--primary
+        background-color: $primary
+        color: $white
+        box-shadow: 0 4px 14px rgba($tan, 0.4)
+
+        &:hover
+            background-color: color.adjust($primary, $lightness: -8%)
+            transform: translateY(-2px)
+
+    &--ghost
+        background-color: transparent
+        color: $text-color
+        border: 2px solid $primary
+
+        &:hover
+            background-color: rgba($tan, 0.1)
+            transform: translateY(-2px) 
