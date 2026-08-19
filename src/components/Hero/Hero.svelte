@@ -50,3 +50,26 @@ import Mainpagefoto from '../../assets/Mainpagefoto.png'
   </div>
 </section>
 
+<section class="stats">
+  <div class="wrap">
+    <div class="stats__grid">
+      <div class="stats__item">
+        <div class="stats__number">6+</div>
+        <div class="stats__label">цветов и дизайнов</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number">3</div>
+        <div class="stats__label">размера: S / M / L</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number">1 800+</div>
+        <div class="stats__label">выполненных заказов</div>
+      </div>
+      <div class="stats__item">
+        <div class="stats__number">100%</div>
+        <div class="stats__label">перерабатываемая бумага</div>
+      </div>
+    </div>
+  </div>
+</section>
+

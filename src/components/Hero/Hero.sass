@@ -159,3 +159,50 @@ $transition: all 0.3s ease
         &:hover
             background-color: rgba($tan, 0.1)
             transform: translateY(-2px) 
+            // ==========================================
+// Stats Styles (Sass Indented Syntax)
+// ==========================================
+.stats
+    background-color: $white
+    font-family: "Manrope", sans-serif
+    padding: 60px 0
+    border-top: 1px solid rgba($tan, 0.2)
+    border-bottom: 1px solid rgba($tan, 0.2)
+
+    &__grid
+        display: grid
+        grid-template-columns: 1fr
+        gap: 30px
+
+        @media (min-width: 768px)
+            grid-template-columns: repeat(4, 1fr)
+
+    &__item
+        display: flex
+        flex-direction: column
+        align-items: center
+        text-align: center
+        position: relative
+        padding: 10px 20px
+
+        @media (min-width: 768px)
+            &:not(:last-child)::after
+                content: ''
+                position: absolute
+                right: 0
+                top: 20%
+                height: 60%
+                width: 1px
+                background-color: rgba($tan, 0.3)
+
+    &__number
+        font-size: 2.2rem
+        font-weight: 700
+        color: $text-color
+        margin-bottom: 8px
+
+    &__label
+        font-size: 0.9rem
+        color: $text-light
+        text-transform: lowercase
+        letter-spacing: 0.5px
