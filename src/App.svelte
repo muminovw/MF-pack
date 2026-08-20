@@ -17,5 +17,5 @@
   <Product />
   <Gallery />
   <Location />
-  <Contact />
+  <!-- <Contact /> -->
 </main>

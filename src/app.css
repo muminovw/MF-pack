@@ -1,34 +1,48 @@
-/* --- 1. Global Reset & Box Sizing --- */
+/* ============================================================ */
+/* 1. Global Reset & Box Sizing                                 */
+/* ============================================================ */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
-/* --- 2. Root Variables (Ranglar va shriftlar) --- */
+/* ============================================================ */
+/* 2. Root Variables (Professional Light & Elegant Gold Palette)*/
+/* ============================================================ */
 :root {
-  --primary-color: #2563eb; /* Asosiy rang (Ko'k) */
-  --primary-hover: #1d4ed8;
-  --text-main: #1f2937;     /* Asosiy matn rangi */
-  --text-muted: #4b5563;    /* Qo'shimcha matn rangi */
-  --bg-color: #ffffff;      /* Sahifa foni */
-  --bg-light: #f9fafb;      /* Och tusdagi fon */
+  /* Siz talab qilgan asosiy fon rangi va unga mos professional palitra */
+  --bg-main: #EFECE6;
+  --bg-card: #F9F7F4;
+  --text-main: #2D2621;
+  --text-muted: #6E635B;
+  --gold: #A67C52;
+  --gold-light: #C49A6C;
+  --gold-dark: #6E4E2D;
+  --border-gold: rgba(166, 124, 82, 0.22);
+  
+  /* Umumiy parametrlar */
   --transition: all 0.3s ease;
   
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.5;
   color: var(--text-main);
-  background-color: var(--bg-color);
+  background-color: var(--bg-main);
 }
 
-/* --- 3. Body & General Styles --- */
+/* ============================================================ */
+/* 3. Body & General Styles                                     */
+/* ============================================================ */
 body {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--bg-main);
+  color: var(--text-main);
 }
 
 main {
@@ -37,7 +51,9 @@ main {
   width: 100%;
 }
 
-/* --- 4. Links & Lists --- */
+/* ============================================================ */
+/* 4. Links & Lists                                             */
+/* ============================================================ */
 a {
   color: inherit;
   text-decoration: none;
@@ -47,14 +63,18 @@ ul, ol {
   list-style: none;
 }
 
-/* --- 5. Images & Media --- */
+/* ============================================================ */
+/* 5. Images & Media                                            */
+/* ============================================================ */
 img, video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* --- 6. Utility Classes --- */
+/* ============================================================ */
+/* 6. Utility Classes                                           */
+/* ============================================================ */
 .container {
   width: 100%;
   max-width: 1200px;
