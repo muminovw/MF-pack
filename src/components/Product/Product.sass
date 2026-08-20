@@ -1,0 +1,750 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap')
+
+*
+  box-sizing: border-box
+
+.products-section
+  position: relative
+  width: 100%
+  min-height: 100vh
+  padding: 110px 0 100px
+  overflow: hidden
+  background: #f8f4ed
+  color: #2d2925
+
+.products-container
+  position: relative
+  z-index: 2
+  width: min(1400px, calc(100% - 80px))
+  margin: 0 auto
+
+
+// ==========================================
+// BACKGROUND
+// ==========================================
+
+.background-decoration
+  position: absolute
+  border-radius: 50%
+  pointer-events: none
+  filter: blur(2px)
+
+.decoration-one
+  width: 520px
+  height: 520px
+  top: -250px
+  left: -200px
+  background: radial-gradient(
+    circle,
+    rgba(218, 174, 103, .16) 0%,
+    rgba(218, 174, 103, 0) 70%
+  )
+
+.decoration-two
+  width: 650px
+  height: 650px
+  right: -300px
+  bottom: -350px
+  background: radial-gradient(
+    circle,
+    rgba(226, 189, 132, .13) 0%,
+    rgba(226, 189, 132, 0) 70%
+  )
+
+
+// ==========================================
+// HEADER
+// ==========================================
+
+.section-header
+  max-width: 850px
+  margin: 0 auto 70px
+  text-align: center
+
+.eyebrow
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: 15px
+  margin-bottom: 22px
+
+  span
+    font-family: 'DM Sans', sans-serif
+    font-size: 11px
+    font-weight: 700
+    letter-spacing: 3px
+    color: #aa7d3e
+
+.eyebrow-line
+  width: 42px
+  height: 1px
+  background: #cda45d
+
+.section-header h2
+  margin: 0
+  font-family: 'Playfair Display', serif
+  font-size: clamp(44px, 5vw, 72px)
+  line-height: 1.05
+  font-weight: 600
+  letter-spacing: -2px
+  color: #2d2925
+
+  span
+    color: #b88b4a
+    font-style: italic
+
+.section-header p
+  max-width: 650px
+  margin: 25px auto 0
+  font-family: 'DM Sans', sans-serif
+  font-size: 16px
+  line-height: 1.8
+  color: #817970
+
+
+// ==========================================
+// GRID
+// ==========================================
+
+.products-grid
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  gap: 18px
+
+
+// ==========================================
+// CARD
+// ==========================================
+
+.product-card
+  position: relative
+  overflow: hidden
+  background: rgba(255, 255, 255, .88)
+  border: 1px solid rgba(184, 139, 74, .2)
+  border-radius: 4px
+  box-shadow: 0 12px 35px rgba(53, 42, 29, .055)
+  transition: transform .55s cubic-bezier(.2, .8, .2, 1), box-shadow .55s ease, border-color .4s ease
+  animation: cardReveal .8s both
+  animation-delay: var(--delay)
+
+  &:hover
+    transform: translateY(-12px)
+    border-color: rgba(184, 139, 74, .5)
+    box-shadow: 0 28px 70px rgba(53, 42, 29, .13)
+
+    .product-image img
+      transform: scale(1.07) translateY(-5px)
+
+    .image-glow
+      opacity: 1
+      transform: scale(1.2)
+
+    .image-overlay
+      opacity: .25
+
+    .view-button
+      opacity: 1
+      transform: translateY(0)
+
+    .arrow-icon
+      transform: translate(3px, -3px)
+
+    .product-number
+      opacity: .9
+
+
+// ==========================================
+// IMAGE
+// ==========================================
+
+.product-image
+  position: relative
+  height: 410px
+  overflow: hidden
+  display: flex
+  align-items: center
+  justify-content: center
+  background: linear-gradient(
+    145deg,
+    #f7f4ef,
+    #ebe5db
+  )
+
+  img
+    position: relative
+    z-index: 2
+    width: 100%
+    height: 100%
+    object-fit: contain
+    padding: 20px
+    transition: transform .8s cubic-bezier(.2, .8, .2, 1)
+    filter: drop-shadow(0 25px 18px rgba(0, 0, 0, .13))
+
+.image-glow
+  position: absolute
+  z-index: 1
+  width: 280px
+  height: 280px
+  border-radius: 50%
+  background: var(--accent)
+  opacity: .08
+  filter: blur(65px)
+  transition: all .7s ease
+
+.image-overlay
+  position: absolute
+  inset: 0
+  z-index: 3
+  background: linear-gradient(
+    180deg,
+    transparent 55%,
+    rgba(20, 15, 10, .22)
+  )
+  opacity: 0
+  transition: opacity .5s ease
+
+.product-number
+  position: absolute
+  top: 18px
+  left: 20px
+  z-index: 5
+  font-family: 'DM Sans', sans-serif
+  font-size: 11px
+  font-weight: 700
+  letter-spacing: 2px
+  color: #8c8176
+  opacity: .55
+  transition: opacity .4s ease
+
+.product-category
+  position: absolute
+  top: 18px
+  right: 18px
+  z-index: 5
+  display: flex
+  align-items: center
+  gap: 7px
+  padding: 8px 11px
+  border: 1px solid rgba(255, 255, 255, .7)
+  border-radius: 100px
+  background: rgba(255, 255, 255, .78)
+  backdrop-filter: blur(10px)
+  font-family: 'DM Sans', sans-serif
+  font-size: 9px
+  font-weight: 700
+  letter-spacing: 1.4px
+  color: #554d45
+
+.category-dot
+  width: 6px
+  height: 6px
+  border-radius: 50%
+  background: var(--accent)
+
+.view-button
+  position: absolute
+  z-index: 8
+  left: 50%
+  bottom: 25px
+  transform: translate(-50%, 15px)
+  display: flex
+  align-items: center
+  gap: 10px
+  padding: 12px 18px
+  border: 1px solid rgba(255, 255, 255, .55)
+  border-radius: 100px
+  background: rgba(255, 255, 255, .92)
+  backdrop-filter: blur(12px)
+  color: #2d2925
+  font-family: 'DM Sans', sans-serif
+  font-size: 12px
+  font-weight: 600
+  cursor: pointer
+  opacity: 0
+  transition: all .45s ease
+
+  svg
+    width: 15px
+    height: 15px
+    transition: transform .3s ease
+
+  &:hover
+    background: #fff
+
+    svg
+      transform: translateX(3px)
+
+
+// ==========================================
+// CONTENT
+// ==========================================
+
+.product-content
+  padding: 28px 27px 25px
+
+.title-row
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  gap: 15px
+
+.small-label
+  display: block
+  margin-bottom: 7px
+  font-family: 'DM Sans', sans-serif
+  font-size: 9px
+  font-weight: 700
+  letter-spacing: 2px
+  color: var(--accent)
+
+.product-content h3
+  margin: 0
+  font-family: 'Playfair Display', serif
+  font-size: 27px
+  line-height: 1.2
+  font-weight: 600
+  color: #2e2924
+
+.arrow-icon
+  flex-shrink: 0
+  width: 38px
+  height: 38px
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 1px solid #e7e0d7
+  border-radius: 50%
+  color: #786d62
+  transition: transform .4s ease, background .3s ease
+
+  svg
+    width: 17px
+    height: 17px
+
+.description
+  min-height: 54px
+  margin: 15px 0 20px
+  font-family: 'DM Sans', sans-serif
+  font-size: 13px
+  line-height: 1.7
+  color: #847a70
+
+
+// ==========================================
+// TAGS
+// ==========================================
+
+.product-tags
+  display: flex
+  flex-wrap: wrap
+  gap: 6px
+  padding-bottom: 20px
+  border-bottom: 1px solid #eee8df
+
+  span
+    padding: 6px 9px
+    border-radius: 100px
+    background: #f5f1eb
+    font-family: 'DM Sans', sans-serif
+    font-size: 9px
+    font-weight: 600
+    color: #73695f
+    transition: background .3s ease
+
+  span:first-child
+    background: color-mix(in srgb, var(--accent) 11%, white)
+    color: var(--accent)
+
+
+// ==========================================
+// FOOTER
+// ==========================================
+
+.product-footer
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: 10px
+  padding-top: 18px
+
+.available
+  display: flex
+  align-items: center
+  gap: 7px
+  font-family: 'DM Sans', sans-serif
+  font-size: 10px
+  color: #7d746c
+
+.available-dot
+  width: 6px
+  height: 6px
+  border-radius: 50%
+  background: #75a56b
+  box-shadow: 0 0 0 4px rgba(117, 165, 107, .1)
+
+.details-button
+  display: flex
+  align-items: center
+  gap: 7px
+  padding: 0
+  border: 0
+  background: transparent
+  color: #2d2925
+  font-family: 'DM Sans', sans-serif
+  font-size: 11px
+  font-weight: 700
+  cursor: pointer
+
+  svg
+    width: 14px
+    height: 14px
+    transition: transform .3s ease
+
+  &:hover svg
+    transform: translateX(4px)
+
+
+// ==========================================
+// INFO
+// ==========================================
+
+.collection-info
+  display: grid
+  grid-template-columns: repeat(4, 1fr)
+  margin-top: 28px
+  padding: 24px 28px
+  border: 1px solid rgba(184, 139, 74, .15)
+  border-radius: 5px
+  background: rgba(255, 255, 255, .58)
+  box-shadow: 0 15px 45px rgba(53, 42, 29, .04)
+
+.info-item
+  display: flex
+  align-items: center
+  gap: 14px
+  padding: 4px 25px
+  border-right: 1px solid #e9e2d8
+
+  &:last-child
+    border-right: 0
+
+.info-icon
+  flex-shrink: 0
+  width: 44px
+  height: 44px
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  background: #f3ede4
+  color: #b4894b
+
+  svg
+    width: 20px
+    height: 20px
+
+.info-item strong
+  display: block
+  margin-bottom: 4px
+  font-family: 'DM Sans', sans-serif
+  font-size: 12px
+  font-weight: 700
+  color: #3a342e
+
+.info-item span
+  display: block
+  font-family: 'DM Sans', sans-serif
+  font-size: 10px
+  line-height: 1.5
+  color: #8c8278
+
+
+// ==========================================
+// MODAL
+// ==========================================
+
+.product-modal
+  position: fixed
+  z-index: 9999
+  inset: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 30px
+  background: rgba(32, 27, 22, .55)
+  backdrop-filter: blur(14px)
+  animation: modalBackground .35s ease
+
+.modal-card
+  position: relative
+  display: grid
+  grid-template-columns: 1fr 1fr
+  width: min(900px, 100%)
+  overflow: hidden
+  border: 1px solid rgba(255, 255, 255, .5)
+  border-radius: 12px
+  background: #faf7f1
+  box-shadow: 0 35px 100px rgba(0, 0, 0, .25)
+  animation: modalReveal .45s cubic-bezier(.2, .8, .2, 1)
+
+.modal-close
+  position: absolute
+  z-index: 10
+  top: 18px
+  right: 18px
+  width: 40px
+  height: 40px
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 1px solid rgba(0, 0, 0, .08)
+  border-radius: 50%
+  background: rgba(255, 255, 255, .8)
+  cursor: pointer
+  color: #332d27
+  transition: transform .3s ease
+
+  svg
+    width: 17px
+    height: 17px
+
+  &:hover
+    transform: rotate(90deg)
+
+.modal-image
+  min-height: 540px
+  display: flex
+  align-items: center
+  justify-content: center
+  background: #eee9e1
+
+  img
+    width: 100%
+    height: 100%
+    max-height: 540px
+    object-fit: contain
+    padding: 35px
+    filter: drop-shadow(0 25px 20px rgba(0, 0, 0, .14))
+
+.modal-content
+  display: flex
+  flex-direction: column
+  justify-content: center
+  padding: 60px
+
+.modal-label
+  margin-bottom: 12px
+  font-family: 'DM Sans', sans-serif
+  font-size: 10px
+  font-weight: 700
+  letter-spacing: 2.5px
+  color: #ad803f
+
+.modal-content h3
+  margin: 0
+  font-family: 'Playfair Display', serif
+  font-size: 42px
+  line-height: 1.15
+  color: #2d2925
+
+.modal-content p
+  margin: 20px 0 25px
+  font-family: 'DM Sans', sans-serif
+  font-size: 14px
+  line-height: 1.8
+  color: #7d746b
+
+.modal-tags
+  display: flex
+  flex-wrap: wrap
+  gap: 8px
+  margin-bottom: 30px
+
+  span
+    padding: 8px 12px
+    border-radius: 100px
+    background: #eee8df
+    font-family: 'DM Sans', sans-serif
+    font-size: 10px
+    color: #6f655b
+
+.modal-stock
+  display: flex
+  align-items: center
+  gap: 9px
+  font-family: 'DM Sans', sans-serif
+  font-size: 12px
+  font-weight: 600
+  color: #4c6845
+
+  span
+    width: 7px
+    height: 7px
+    border-radius: 50%
+    background: #72a466
+    box-shadow: 0 0 0 5px rgba(114, 164, 102, .1)
+
+
+// ==========================================
+// ANIMATIONS
+// ==========================================
+
+@keyframes cardReveal
+  from
+    opacity: 0
+    transform: translateY(35px)
+
+  to
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes modalBackground
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+@keyframes modalReveal
+  from
+    opacity: 0
+    transform: translateY(30px) scale(.97)
+
+  to
+    opacity: 1
+    transform: translateY(0) scale(1)
+
+
+// ==========================================
+// TABLET
+// ==========================================
+
+@media (max-width: 1150px)
+
+  .products-container
+    width: min(1000px, calc(100% - 50px))
+
+  .products-grid
+    grid-template-columns: repeat(2, 1fr)
+
+  .product-image
+    height: 430px
+
+  .collection-info
+    grid-template-columns: repeat(2, 1fr)
+    gap: 20px
+
+  .info-item
+    border-right: 0
+
+    &:nth-child(odd)
+      border-right: 1px solid #e9e2d8
+
+
+// ==========================================
+// MOBILE
+// ==========================================
+
+@media (max-width: 700px)
+
+  .products-section
+    padding: 75px 0 70px
+
+  .products-container
+    width: calc(100% - 30px)
+
+  .section-header
+    margin-bottom: 45px
+
+  .section-header h2
+    font-size: 42px
+    letter-spacing: -1px
+
+  .section-header p
+    font-size: 14px
+    line-height: 1.7
+
+  .products-grid
+    grid-template-columns: 1fr
+    gap: 18px
+
+  .product-image
+    height: 400px
+
+  .view-button
+    opacity: 1
+    transform: translate(-50%, 0)
+
+  .collection-info
+    grid-template-columns: 1fr
+    padding: 18px
+
+  .info-item
+    padding: 15px 8px
+    border-right: 0 !important
+    border-bottom: 1px solid #e9e2d8
+
+    &:last-child
+      border-bottom: 0
+
+  .modal-card
+    grid-template-columns: 1fr
+    max-height: 90vh
+    overflow-y: auto
+
+  .modal-image
+    min-height: 320px
+    max-height: 360px
+
+    img
+      max-height: 360px
+
+  .modal-content
+    padding: 35px
+
+  .modal-content h3
+    font-size: 34px
+
+  .modal-close
+    top: 12px
+    right: 12px
+
+
+// ==========================================
+// SMALL MOBILE
+// ==========================================
+
+@media (max-width: 430px)
+
+  .products-section
+    padding-top: 60px
+
+  .section-header h2
+    font-size: 36px
+
+  .eyebrow
+    gap: 9px
+
+    span
+      font-size: 9px
+      letter-spacing: 2px
+
+  .eyebrow-line
+    width: 25px
+
+  .product-image
+    height: 340px
+
+  .product-content
+    padding: 24px 21px
+
+  .product-content h3
+    font-size: 24px
+
+  .product-footer
+    align-items: flex-start
+    flex-direction: column
+    gap: 13px
+
+  .details-button
+    margin-left: auto
