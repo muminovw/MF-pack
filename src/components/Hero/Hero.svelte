@@ -1,11 +1,6 @@
-
-
-
 <script>
-import './Hero.sass'
-import Mainpagefoto from '../../assets/Mainpagefoto.png' 
-  // Hero — главный (первый экран) блок лендинга
-  // Все тексты локализованы на русский язык
+  import './Hero.sass';
+  import Mainpagefoto from '../../assets/Mainpagefoto.png'; 
 
   export let eyebrow = 'Производство подарочных пакетов';
   export let title = 'Каждый подарок достоин <em>яркого</em> начала';
@@ -23,6 +18,7 @@ import Mainpagefoto from '../../assets/Mainpagefoto.png'
 <section class="hero">
   <div class="hero__decor" aria-hidden="true"></div>
 
+  <!-- Asosiy Hero Grid qismi -->
   <div class="wrap hero__grid">
     <div class="hero__content">
       <p class="hero__eyebrow">{eyebrow}</p>
@@ -48,10 +44,9 @@ import Mainpagefoto from '../../assets/Mainpagefoto.png'
       {/if}
     </div>
   </div>
-</section>
 
-<section class="stats">
-  <div class="wrap">
+  <!-- Stats (Statistika) qismi endi shu yerda, bitta section ichida -->
+  <div class="wrap stats__container">
     <div class="stats__grid">
       <div class="stats__item">
         <div class="stats__number">6+</div>
@@ -72,4 +67,3 @@ import Mainpagefoto from '../../assets/Mainpagefoto.png'
     </div>
   </div>
 </section>
-

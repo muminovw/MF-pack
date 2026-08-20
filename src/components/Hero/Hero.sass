@@ -13,13 +13,32 @@ $radius: 12px
 $transition: all 0.3s ease
 
 // ==========================================
+// Global Wrapper (Markazlashtirish uchun)
+// ==========================================
+.wrap
+    width: 100%
+    max-width: 1250px
+    margin: 0 auto
+    padding: 0 24px
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+// ==========================================
 // Hero Styles (Sass Indented Syntax)
 // ==========================================
 .hero
     position: relative
     background-color: $bg-color
-    padding: 80px 0
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    padding: clamp(40px, 6vh, 80px) 0
     overflow: hidden
+    gap: clamp(30px, 5vh, 50px) // Hero bilan stats orasidagi masofa avtomatik moslashadi
 
     &__decor
         position: absolute
@@ -33,8 +52,10 @@ $transition: all 0.3s ease
     &__grid
         display: grid
         grid-template-columns: 1fr
-        gap: 40px
+        gap: clamp(30px, 4vw, 60px)
         align-items: center
+        justify-content: center
+        width: 100%
         position: relative
         z-index: 1
 
@@ -45,6 +66,8 @@ $transition: all 0.3s ease
         display: flex
         flex-direction: column
         align-items: flex-start
+        justify-content: center
+        width: 100%
 
     &__eyebrow
         font-size: 0.9rem
@@ -55,24 +78,20 @@ $transition: all 0.3s ease
         margin-bottom: 12px
 
     &__title
-        font-size: 2.5rem
+        font-size: clamp(2.2rem, 3.5vw, 3.4rem)
         line-height: 1.2
         font-weight: 700
         color: $text-color
         margin-bottom: 20px
 
-        @media (min-width: 768px)
-            font-size: 3.5rem
-
         em
             font-style: normal
             color: color.adjust($tan, $lightness: -10%)
-            // background: linear-gradient(120deg, rgba($tan, 0.3) 0%, transparent 100%)
-            padding: 0 6px
+            padding: 0 4px
             border-radius: 4px
 
     &__lead
-        font-size: 1.125rem
+        font-size: clamp(1rem, 1.1vw, 1.15rem)
         line-height: 1.6
         color: $text-light
         margin-bottom: 32px
@@ -92,11 +111,10 @@ $transition: all 0.3s ease
 
         img
             width: 100%
-            max-width: 800px
+            max-width: 480px
             height: auto
             border-radius: $radius
-            // box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08)
-            // object-fit: cover
+            object-fit: cover
 
     &__badge
         position: absolute
@@ -113,7 +131,7 @@ $transition: all 0.3s ease
         z-index: 2
 
         &-num
-            font-size: 1.75rem
+            font-size: 1.6rem
             font-weight: 800
             color: color.adjust($tan, $lightness: -20%)
 
@@ -123,14 +141,8 @@ $transition: all 0.3s ease
             text-transform: lowercase
 
 // ==========================================
-// General Layout & Buttons
+// Buttons
 // ==========================================
-.wrap
-    max-width: 1300px
-    margin: 0 auto
-    padding: 16px 18px
-
-
 .btn
     display: inline-flex
     align-items: center
@@ -159,21 +171,26 @@ $transition: all 0.3s ease
 
         &:hover
             background-color: rgba($tan, 0.1)
-            transform: translateY(-2px) 
-            // ==========================================
-// Stats Styles (Sass Indented Syntax)
-// ==========================================
-.stats
-    background-color: $white
-    font-family: "Manrope", sans-serif
-    padding: 60px 0
-    border-top: 1px solid rgba($tan, 0.2)
-    border-bottom: 1px solid rgba($tan, 0.2)
+            transform: translateY(-2px)
 
+// ==========================================
+// Stats Styles (Bitta section ichida)
+// ==========================================
+.stats__container
+    width: 100%
+    background-color: $white
+    border-radius: $radius
+    border: 1px solid rgba($tan, 0.2)
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03)
+    padding: 30px 20px
+    z-index: 1
+
+.stats
     &__grid
         display: grid
         grid-template-columns: 1fr
-        gap: 30px
+        gap: 25px
+        width: 100%
 
         @media (min-width: 768px)
             grid-template-columns: repeat(4, 1fr)
@@ -197,7 +214,7 @@ $transition: all 0.3s ease
                 background-color: rgba($tan, 0.3)
 
     &__number
-        font-size: 2.2rem
+        font-size: 1.9rem
         font-weight: 700
         color: $text-color
         margin-bottom: 8px
