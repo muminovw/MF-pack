@@ -1,0 +1,451 @@
+.about
+  position: relative
+  width: 100%
+  height: 100vh
+  min-height: 600px
+  overflow: hidden
+  background: #fffdf9
+  color: #3d3025
+  display: flex
+  align-items: center
+  justify-content: center
+  isolation: isolate
+
+
+.about__glow
+  position: absolute
+  pointer-events: none
+  border-radius: 50%
+  filter: blur(80px)
+  z-index: -1
+
+
+.about__glow--one
+  width: 420px
+  height: 420px
+  left: -180px
+  top: 10%
+  background: rgba(213, 177, 124, 0.12)
+
+
+.about__glow--two
+  width: 380px
+  height: 380px
+  right: -160px
+  bottom: -120px
+  background: rgba(190, 148, 91, 0.1)
+
+
+.about__container
+  width: min(1280px, calc(100% - 100px))
+  height: calc(100vh - 120px)
+  display: grid
+  grid-template-columns: 0.95fr 1.05fr
+  align-items: center
+  gap: 90px
+
+
+.about__visual
+  position: relative
+  width: 100%
+  height: min(620px, 72vh)
+  display: flex
+  align-items: center
+  justify-content: center
+
+
+.about__frame
+  position: absolute
+  width: 90%
+  height: 90%
+  border: 1px solid rgba(166, 126, 77, 0.5)
+  border-radius: 4px
+  transform: rotate(-2deg)
+  transition: transform 0.7s ease
+
+
+.about__visual:hover .about__frame
+  transform: rotate(1deg) scale(1.015)
+
+
+.about__image-wrap
+  position: relative
+  width: 88%
+  height: 88%
+  overflow: hidden
+  border-radius: 4px
+  background: #f8f2e9
+  border: 1px solid rgba(170, 130, 82, 0.25)
+  box-shadow: 0 30px 70px rgba(94, 69, 43, 0.14)
+  z-index: 2
+
+
+.about__image
+  width: 100%
+  height: 100%
+  display: block
+  object-fit: cover
+  transition: transform 1s cubic-bezier(.2, .8, .2, 1)
+
+
+.about__visual:hover .about__image
+  transform: scale(1.035)
+
+
+.about__shine
+  position: absolute
+  width: 35%
+  height: 150%
+  left: -70%
+  top: -25%
+  z-index: 4
+  pointer-events: none
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), rgba(218, 183, 132, 0.28), transparent)
+  transform: rotate(18deg)
+  transition: left 1s ease
+
+
+.about__visual:hover .about__shine
+  left: 130%
+
+
+.about__label
+  position: absolute
+  left: 8%
+  bottom: 5%
+  z-index: 5
+  display: flex
+  flex-direction: column
+  gap: 4px
+  padding: 14px 20px
+  background: rgba(255, 253, 249, 0.9)
+  border: 1px solid rgba(177, 137, 87, 0.3)
+  backdrop-filter: blur(12px)
+  box-shadow: 0 15px 35px rgba(80, 58, 38, 0.12)
+
+
+.about__label span
+  color: #87623c
+  font-family: Georgia, 'Times New Roman', serif
+  font-size: 17px
+  letter-spacing: 0.18em
+
+
+.about__label small
+  color: #a89073
+  font-size: 9px
+  letter-spacing: 0.22em
+  text-transform: uppercase
+
+
+.about__content
+  max-width: 650px
+
+
+.about__topline
+  display: flex
+  align-items: center
+  gap: 14px
+  margin-bottom: 20px
+
+
+.about__topline span
+  width: 35px
+  height: 1px
+  background: #b8956b
+
+
+.about__topline p
+  margin: 0
+  color: #a47d50
+  font-size: 10px
+  font-weight: 700
+  letter-spacing: 0.32em
+
+
+.about__title
+  margin: 0
+  color: #3c2e23
+  font-family: Georgia, 'Times New Roman', serif
+  font-size: clamp(44px, 5vw, 72px)
+  line-height: 0.95
+  letter-spacing: -0.045em
+  font-weight: 500
+
+
+.about__title em
+  display: block
+  margin-top: 8px
+  color: #a27b50
+  font-size: 0.52em
+  font-style: italic
+  letter-spacing: -0.02em
+
+
+.about__line
+  width: 90px
+  height: 1px
+  margin: 27px 0 24px
+  background: linear-gradient(90deg, #a47a4b, #d8b57d, transparent)
+
+
+.about__text
+  max-width: 620px
+  margin: 0
+  color: #75685c
+  font-size: 14px
+  line-height: 1.8
+
+
+.about__text strong
+  color: #8d683f
+  font-weight: 800
+
+
+.about__text--second
+  margin-top: 13px
+
+
+.about__features
+  display: flex
+  flex-direction: column
+  margin-top: 25px
+  border-top: 1px solid rgba(150, 115, 76, 0.2)
+
+
+.about__feature
+  position: relative
+  min-height: 51px
+  display: flex
+  align-items: center
+  gap: 14px
+  padding: 6px 8px
+  border-bottom: 1px solid rgba(150, 115, 76, 0.2)
+  transition: background 0.35s ease, padding-left 0.35s ease
+  animation: featureIn 0.7s ease both
+  animation-delay: var(--delay)
+
+
+.about__feature::before
+  content: ''
+  position: absolute
+  left: 0
+  top: 0
+  width: 2px
+  height: 100%
+  background: #b28a59
+  transform: scaleY(0)
+  transition: transform 0.35s ease
+
+
+.about__feature:hover
+  padding-left: 16px
+  background: rgba(207, 173, 127, 0.07)
+
+
+.about__feature:hover::before
+  transform: scaleY(1)
+
+
+.about__feature-icon
+  width: 27px
+  height: 27px
+  display: grid
+  place-items: center
+  flex-shrink: 0
+  border-radius: 50%
+  color: #fffaf2
+  background: linear-gradient(135deg, #c5a06f, #987047)
+  font-size: 12px
+  box-shadow: 0 4px 12px rgba(145, 104, 61, 0.22)
+  transition: transform 0.35s ease
+
+
+.about__feature:hover .about__feature-icon
+  transform: rotate(45deg)
+
+
+.about__feature p
+  flex: 1
+  margin: 0
+  color: #57493c
+  font-size: 12px
+  font-weight: 500
+
+
+.about__arrow
+  color: #b18a5c
+  font-size: 17px
+  opacity: 0.45
+  transform: translateX(0)
+  transition: opacity 0.3s ease, transform 0.3s ease
+
+
+.about__feature:hover .about__arrow
+  opacity: 1
+  transform: translateX(5px)
+
+
+.about__bottom
+  position: absolute
+  left: 50%
+  bottom: 22px
+  transform: translateX(-50%)
+  width: min(1280px, calc(100% - 100px))
+  display: flex
+  align-items: center
+  gap: 22px
+
+
+.about__bottom > span
+  height: 1px
+  flex: 1
+  background: linear-gradient(90deg, transparent, rgba(153, 116, 74, 0.3))
+
+
+.about__bottom > span:last-child
+  background: linear-gradient(90deg, rgba(153, 116, 74, 0.3), transparent)
+
+
+.about__bottom div
+  display: flex
+  align-items: center
+  gap: 12px
+
+
+.about__bottom b
+  color: #b39572
+  font-size: 8px
+  font-weight: 600
+  letter-spacing: 0.2em
+
+
+.about__bottom i
+  color: #87623d
+  font-family: Georgia, 'Times New Roman', serif
+  font-size: 10px
+  font-style: normal
+  letter-spacing: 0.25em
+
+
+@keyframes featureIn
+
+  from
+    opacity: 0
+    transform: translateX(25px)
+
+  to
+    opacity: 1
+    transform: translateX(0)
+
+
+@media (max-width: 1050px)
+
+  .about__container
+    width: calc(100% - 60px)
+    gap: 50px
+
+  .about__visual
+    height: 60vh
+
+  .about__title
+    font-size: clamp(40px, 6vw, 60px)
+
+  .about__text
+    font-size: 13px
+
+
+@media (max-width: 760px)
+
+  .about
+    min-height: 650px
+
+  .about__container
+    width: calc(100% - 32px)
+    height: calc(100vh - 70px)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 25px
+
+  .about__visual
+    width: 100%
+    height: 38vh
+    min-height: 240px
+
+  .about__image-wrap
+    width: 82%
+    height: 88%
+
+  .about__frame
+    width: 84%
+    height: 88%
+
+  .about__label
+    left: 8%
+    bottom: 0
+    padding: 9px 13px
+
+  .about__label span
+    font-size: 12px
+
+  .about__label small
+    font-size: 7px
+
+  .about__content
+    width: 100%
+
+  .about__topline
+    margin-bottom: 10px
+
+  .about__title
+    font-size: 38px
+
+  .about__title em
+    font-size: 20px
+
+  .about__line
+    margin: 14px 0
+
+  .about__text
+    font-size: 11px
+    line-height: 1.55
+
+  .about__text--second
+    display: none
+
+  .about__features
+    margin-top: 12px
+
+  .about__feature
+    min-height: 38px
+
+  .about__feature-icon
+    width: 22px
+    height: 22px
+    font-size: 9px
+
+  .about__feature p
+    font-size: 10px
+
+  .about__arrow
+    font-size: 13px
+
+  .about__bottom
+    width: calc(100% - 32px)
+    bottom: 12px
+
+
+@media (max-width: 420px)
+
+  .about__visual
+    height: 34vh
+
+  .about__title
+    font-size: 32px
+
+  .about__text
+    font-size: 10px
+
+  .about__feature p
+    font-size: 9px
