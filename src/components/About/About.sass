@@ -1,426 +1,375 @@
-.about
+@use "sass:color"
+
+// ==========================================
+// MF PACK: ABOUT SECTION (#EFECE6 Palette)
+// ==========================================
+
+$bg-main: #EFECE6
+$color-card-bg: #F9F7F4
+$color-primary: #2D2621
+$color-muted: #6E635B
+$color-text-sub: #4A4038
+$color-gold: #A67C52
+$color-gold-dark: #6E4E2D
+$color-gold-light: #C49A6C
+$border-gold: rgba(166, 124, 82, 0.22)
+
+.mf-about
   position: relative
   width: 100%
-  height: 100vh
-  min-height: 600px
-  overflow: hidden
-  background: #fffdf9
-  color: #3d3025
+  background: $bg-main
+  color: $color-primary
   display: flex
-  align-items: center
+  flex-direction: column
   justify-content: center
+  align-items: center
+  padding: 50px 0 60px 0
+  overflow: hidden
   isolation: isolate
 
-
-.about__glow
-  position: absolute
-  pointer-events: none
-  border-radius: 50%
-  filter: blur(80px)
-  z-index: -1
-
-
-.about__glow--one
-  width: 420px
-  height: 420px
-  left: -180px
-  top: 10%
-  background: rgba(213, 177, 124, 0.12)
-
-
-.about__glow--two
-  width: 380px
-  height: 380px
-  right: -160px
-  bottom: -120px
-  background: rgba(190, 148, 91, 0.1)
-
-
-.about__container
-  width: min(1280px, calc(100% - 100px))
-  height: calc(100vh - 120px)
-  display: grid
-  grid-template-columns: 0.95fr 1.05fr
-  align-items: center
-  gap: 90px
-
-
-.about__visual
-  position: relative
-  width: 100%
-  height: min(620px, 72vh)
-  display: flex
-  align-items: center
-  justify-content: center
-
-
-.about__frame
-  position: absolute
-  width: 90%
-  height: 90%
-  border: 1px solid rgba(166, 126, 77, 0.5)
-  border-radius: 4px
-  transform: rotate(-2deg)
-  transition: transform 0.7s ease
-
-
-.about__visual:hover .about__frame
-  transform: rotate(1deg) scale(1.015)
-
-
-.about__image-wrap
-  position: relative
-  width: 88%
-  height: 88%
-  overflow: hidden
-  border-radius: 4px
-  background: #f8f2e9
-  border: 1px solid rgba(170, 130, 82, 0.25)
-  box-shadow: 0 30px 70px rgba(94, 69, 43, 0.14)
-  z-index: 2
-  /* Rasm tarkibini markazga qo'yish uchun flex qo'shildi */
-  display: flex
-  align-items: center
-  justify-content: center
-
-
-.about__image
-  width: 90%
-  height: auto
-  max-height: 90%
-  display: block
-  object-fit: contain
-  object-position: center
-  transition: transform 1s cubic-bezier(.2, .8, .2, 1)
-
-
-.about__visual:hover .about__image
-  transform: scale(1.035)
-
-
-.about__shine
-  position: absolute
-  width: 35%
-  height: 150%
-  left: -70%
-  top: -25%
-  z-index: 4
-  pointer-events: none
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), rgba(218, 183, 132, 0.28), transparent)
-  transform: rotate(18deg)
-  transition: left 1s ease
-
-
-.about__visual:hover .about__shine
-  left: 130%
-
-
-.about__label
-  position: absolute
-  left: 8%
-  bottom: 5%
-  z-index: 5
-  display: flex
-  flex-direction: column
-  gap: 4px
-  padding: 14px 20px
-  background: rgba(255, 253, 249, 0.9)
-  border: 1px solid rgba(177, 137, 87, 0.3)
-  backdrop-filter: blur(12px)
-  box-shadow: 0 15px 35px rgba(80, 58, 38, 0.12)
-
-
-.about__label span
-  color: #87623c
-  font-family: Georgia, 'Times New Roman', serif
-  font-size: 17px
-  letter-spacing: 0.18em
-
-
-.about__label small
-  color: #a89073
-  font-size: 9px
-  letter-spacing: 0.22em
-  text-transform: uppercase
-
-
-.about__content
-  max-width: 650px
-
-
-.about__topline
-  display: flex
-  align-items: center
-  gap: 14px
-  margin-bottom: 20px
-
-
-.about__topline span
-  width: 35px
-  height: 1px
-  background: #b8956b
-
-
-.about__topline p
-  margin: 0
-  color: #a47d50
-  font-size: 10px
-  font-weight: 700
-  letter-spacing: 0.32em
-
-
-.about__title
-  margin: 0
-  color: #3c2e23
-  font-family: Georgia, 'Times New Roman', serif
-  font-size: clamp(44px, 5vw, 72px)
-  line-height: 0.95
-  letter-spacing: -0.045em
-  font-weight: 500
-
-
-.about__title em
-  display: block
-  margin-top: 8px
-  color: #a27b50
-  font-size: 0.52em
-  font-style: italic
-  letter-spacing: -0.02em
-
-
-.about__line
-  width: 90px
-  height: 1px
-  margin: 27px 0 24px
-  background: linear-gradient(90deg, #a47a4b, #d8b57d, transparent)
-
-
-.about__text
-  max-width: 620px
-  margin: 0
-  color: #75685c
-  font-size: 14px
-  line-height: 1.8
-
-
-.about__text strong
-  color: #8d683f
-  font-weight: 800
-
-
-.about__text--second
-  margin-top: 13px
-
-
-.about__features
-  display: flex
-  flex-direction: column
-  margin-top: 25px
-  border-top: 1px solid rgba(150, 115, 76, 0.2)
-
-
-.about__feature
-  position: relative
-  min-height: 51px
-  display: flex
-  align-items: center
-  gap: 14px
-  padding: 6px 8px
-  border-bottom: 1px solid rgba(150, 115, 76, 0.2)
-  transition: background 0.35s ease, padding-left 0.35s ease
-  animation: featureIn 0.7s ease both
-  animation-delay: var(--delay)
-
-
-.about__feature::before
-  content: ''
-  position: absolute
-  left: 0
-  top: 0
-  width: 2px
-  height: 100%
-  background: #b28a59
-  transform: scaleY(0)
-  transition: transform 0.35s ease
-
-
-.about__feature:hover
-  padding-left: 16px
-  background: rgba(207, 173, 127, 0.07)
-
-
-.about__feature:hover::before
-  transform: scaleY(1)
-
-
-.about__feature-icon
-  width: 27px
-  height: 27px
-  display: grid
-  place-items: center
-  flex-shrink: 0
-  border-radius: 50%
-  color: #fffaf2
-  background: linear-gradient(135deg, #c5a06f, #987047)
-  font-size: 12px
-  box-shadow: 0 4px 12px rgba(145, 104, 61, 0.22)
-  transition: transform 0.35s ease
-
-
-.about__feature:hover .about__feature-icon
-  transform: rotate(45deg)
-
-
-.about__feature p
-  flex: 1
-  margin: 0
-  color: #57493c
-  font-size: 12px
-  font-weight: 500
-
-
-.about__arrow
-  color: #b18a5c
-  font-size: 17px
-  opacity: 0.45
-  transform: translateX(0)
-  transition: opacity 0.3s ease, transform 0.3s ease
-
-
-.about__feature:hover .about__arrow
-  opacity: 1
-  transform: translateX(5px)
-
-
-.about__bottom
-  position: absolute
-  left: 50%
-  bottom: 22px
-  transform: translateX(-50%)
-  width: min(1280px, calc(100% - 100px))
-  display: flex
-  align-items: center
-  gap: 22px
-
-
-.about__bottom > span
-  height: 1px
-  flex: 1
-  background: linear-gradient(90deg, transparent, rgba(153, 116, 74, 0.3))
-
-
-.about__bottom > span:last-child
-  background: linear-gradient(90deg, rgba(153, 116, 74, 0.3), transparent)
-
-
-.about__bottom div
-  display: flex
-  align-items: center
-  gap: 12px
-
-
-.about__bottom b
-  color: #b39572
-  font-size: 8px
-  font-weight: 600
-  letter-spacing: 0.2em
-
-
-.about__bottom i
-  color: #87623d
-  font-family: Georgia, 'Times New Roman', serif
-  font-size: 10px
-  font-style: normal
-  letter-spacing: 0.25em
-
-
-@keyframes featureIn
+  // Ambient Glow Effects
+  &__glow
+    position: absolute
+    pointer-events: none
+    border-radius: 50%
+    filter: blur(110px)
+    z-index: -1
+
+    &--primary
+      width: 480px
+      height: 480px
+      left: -180px
+      top: 10%
+      background: color.change($color-gold, $alpha: 0.1)
+
+    &--secondary
+      width: 420px
+      height: 420px
+      right: -160px
+      bottom: -80px
+      background: color.change($color-gold, $alpha: 0.08)
+
+  // Layout Wrapper
+  &__wrapper
+    width: min(1300px, calc(100% - 64px))
+    margin: 0 auto
+    display: grid
+    grid-template-columns: 1fr 1.05fr
+    align-items: center
+    gap: 60px
+
+  // Media & Visual Block
+  &__media
+    position: relative
+    width: 100%
+    height: 540px
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &:hover
+      .mf-about__frame
+        transform: rotate(1deg) scale(1.02)
+      .mf-about__img
+        transform: scale(1.03)
+      .mf-about__shimmer
+        left: 130%
+
+  &__frame
+    position: absolute
+    width: 88%
+    height: 88%
+    border: 1px solid rgba(166, 124, 82, 0.4)
+    border-radius: 8px
+    transform: rotate(-2deg)
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)
+
+  &__screen
+    position: relative
+    width: 85%
+    height: 85%
+    overflow: hidden
+    border-radius: 6px
+    background: $color-card-bg
+    border: 1px solid $border-gold
+    box-shadow: 0 25px 50px rgba(45, 38, 33, 0.08)
+    display: flex
+    align-items: center
+    justify-content: center
+    z-index: 2
+
+  &__img
+    width: 85%
+    height: auto
+    max-height: 85%
+    object-fit: contain
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
+
+  &__shimmer
+    position: absolute
+    width: 40%
+    height: 160%
+    left: -70%
+    top: -30%
+    z-index: 4
+    pointer-events: none
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), rgba(196, 154, 108, 0.2), transparent)
+    transform: rotate(20deg)
+    transition: left 0.9s ease
+
+  &__badge
+    position: absolute
+    left: 5%
+    bottom: 5%
+    z-index: 5
+    display: flex
+    flex-direction: column
+    gap: 3px
+    padding: 12px 20px
+    background: rgba(249, 247, 244, 0.95)
+    border: 1px solid rgba(166, 124, 82, 0.25)
+    backdrop-filter: blur(10px)
+    box-shadow: 0 10px 30px rgba(45, 38, 33, 0.06)
+    border-radius: 4px
+
+  &__badge-title
+    color: $color-gold-dark
+    font-family: Georgia, 'Times New Roman', serif
+    font-size: 15px
+    letter-spacing: 0.16em
+
+  &__badge-subtitle
+    color: $color-muted
+    font-size: 8.5px
+    letter-spacing: 0.2em
+    text-transform: uppercase
+
+  // Content Block
+  &__body
+    max-width: 600px
+
+  &__header
+    display: flex
+    align-items: center
+    gap: 12px
+    margin-bottom: 16px
+
+  &__rule
+    width: 30px
+    height: 1px
+    background: $color-gold
+
+  &__subtitle
+    margin: 0
+    color: color.adjust($color-gold, $lightness: -5%)
+    font-size: 9.5px
+    font-weight: 700
+    letter-spacing: 0.3em
+
+  &__heading
+    margin: 0
+    color: $color-primary
+    font-family: Georgia, 'Times New Roman', serif
+    font-size: clamp(34px, 4vw, 56px)
+    line-height: 1.1
+    letter-spacing: -0.03em
+    font-weight: 500
+
+  &__em
+    display: block
+    margin-top: 6px
+    color: color.adjust($color-gold, $lightness: -8%)
+    font-size: 0.5em
+    font-style: italic
+
+  &__divider
+    width: 70px
+    height: 1px
+    margin: 20px 0 18px
+    background: linear-gradient(90deg, $color-gold, $color-gold-light, transparent)
+
+  &__desc
+    margin: 0
+    color: $color-muted
+    font-size: 13.5px
+    line-height: 1.75
+
+    &--muted
+      margin-top: 12px
+
+  &__strong
+    color: $color-gold-dark
+    font-weight: 700
+
+  // Features List Block
+  &__features
+    display: flex
+    flex-direction: column
+    margin-top: 22px
+    border-top: 1px solid rgba(166, 124, 82, 0.2)
+
+  &__card
+    position: relative
+    min-height: 46px
+    display: flex
+    align-items: center
+    gap: 12px
+    padding: 6px 8px
+    border-bottom: 1px solid rgba(166, 124, 82, 0.2)
+    transition: background 0.25s ease, padding-left 0.25s ease
+    animation: mfFadeSlide 0.5s ease both
+    animation-delay: var(--delay)
+
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 0
+      width: 2px
+      height: 100%
+      background: $color-gold-dark
+      transform: scaleY(0)
+      transition: transform 0.25s ease
+
+    &:hover
+      padding-left: 14px
+      background: rgba(166, 124, 82, 0.05)
+
+      &::before
+        transform: scaleY(1)
+
+      .mf-about__icon
+        transform: rotate(40deg)
+
+      .mf-about__arrow
+        opacity: 1
+        transform: translateX(4px)
+
+  &__icon
+    width: 24px
+    height: 24px
+    display: grid
+    place-items: center
+    flex-shrink: 0
+    border-radius: 50%
+    color: #fffaf2
+    background: linear-gradient(135deg, $color-gold, $color-gold-dark)
+    font-size: 10.5px
+    box-shadow: 0 3px 8px rgba(110, 78, 45, 0.15)
+    transition: transform 0.25s ease
+
+  &__card-text
+    flex: 1
+    margin: 0
+    color: $color-text-sub
+    font-size: 12.5px
+    font-weight: 500
+
+  &__arrow
+    color: $color-gold
+    font-size: 15px
+    opacity: 0.35
+    transform: translateX(0)
+    transition: opacity 0.25s ease, transform 0.25s ease
+
+  // Footer Branding Section
+  &__footer
+    width: min(1280px, calc(100% - 64px))
+    margin: 40px auto 0 auto
+    display: flex
+    align-items: center
+    gap: 16px
+
+  &__footer-line
+    height: 1px
+    flex: 1
+    background: linear-gradient(90deg, transparent, rgba(166, 124, 82, 0.25))
+
+    &:last-child
+      background: linear-gradient(90deg, rgba(166, 124, 82, 0.25), transparent)
+
+  &__footer-info
+    display: flex
+    align-items: center
+    gap: 10px
+
+  &__est,
+  &__year
+    color: $color-muted
+    font-size: 7.5px
+    font-weight: 600
+    letter-spacing: 0.18em
+
+  &__brand-name
+    color: $color-gold-dark
+    font-family: Georgia, 'Times New Roman', serif
+    font-size: 9.5px
+    font-style: normal
+    letter-spacing: 0.22em
+
+// Animations
+@keyframes mfFadeSlide
   from
     opacity: 0
-    transform: translateX(25px)
+    transform: translateX(15px)
   to
     opacity: 1
     transform: translateX(0)
 
+// ==========================================
+// RESPONSIVE DESIGN (Media Queries)
+// ==========================================
 
-@media (max-width: 1050px)
-  .about__container
-    width: calc(100% - 60px)
-    gap: 50px
-  .about__visual
-    height: 60vh
-  .about__title
-    font-size: clamp(40px, 6vw, 60px)
-  .about__text
-    font-size: 13px
+@media (max-width: 1024px)
+  .mf-about
+    padding: 80px 0 40px 0
 
+    &__wrapper
+      grid-template-columns: 1fr
+      gap: 40px
 
-@media (max-width: 760px)
-  .about
-    min-height: 650px
-  .about__container
-    width: calc(100% - 32px)
-    height: calc(100vh - 70px)
-    display: flex
-    flex-direction: column
-    justify-content: center
-    gap: 25px
-  .about__visual
-    width: 100%
-    height: 38vh
-    min-height: 240px
-  .about__image-wrap
-    width: 82%
-    height: 88%
-  .about__frame
-    width: 84%
-    height: 88%
-  .about__label
-    left: 8%
-    bottom: 0
-    padding: 9px 13px
-  .about__label span
-    font-size: 12px
-  .about__label small
-    font-size: 7px
-  .about__content
-    width: 100%
-  .about__topline
-    margin-bottom: 10px
-  .about__title
-    font-size: 38px
-  .about__title em
-    font-size: 20px
-  .about__line
-    margin: 14px 0
-  .about__text
-    font-size: 11px
-    line-height: 1.55
-  .about__text--second
-    display: none
-  .about__features
-    margin-top: 12px
-  .about__feature
-    min-height: 38px
-  .about__feature-icon
-    width: 22px
-    height: 22px
-    font-size: 9px
-  .about__feature p
-    font-size: 10px
-  .about__arrow
-    font-size: 13px
-  .about__bottom
-    width: calc(100% - 32px)
-    bottom: 12px
+    &__media
+      max-width: 440px
+      height: 400px
+      margin: 0 auto
 
+    &__body
+      max-width: 100%
 
-@media (max-width: 420px)
-  .about__visual
-    height: 34vh
-  .about__title
-    font-size: 32px
-  .about__text
-    font-size: 10px
-  .about__feature p
-    font-size: 9px
+@media (max-width: 768px)
+  .mf-about
+    &__wrapper
+      width: calc(100% - 32px)
+      gap: 30px
+
+    &__media
+      height: 320px
+
+    &__heading
+      font-size: 28px
+
+    &__desc
+      font-size: 12.5px
+
+    &__footer
+      width: calc(100% - 32px)
+      margin-top: 30px
+
+@media (max-width: 480px)
+  .mf-about
+    padding: 60px 0 30px 0
+
+    &__media
+      height: 250px
+
+    &__badge
+      padding: 8px 14px
+
+    &__badge-title
+      font-size: 12px
+
+    &__heading
+      font-size: 24px
+
+    &__card-text
+      font-size: 11px
