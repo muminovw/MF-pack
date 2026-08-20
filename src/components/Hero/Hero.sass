@@ -13,17 +13,20 @@ $radius: 12px
 $transition: all 0.3s ease
 
 // ==========================================
-// Global Wrapper (Markazlashtirish uchun)
+// Global Wrapper (Markazlashtirish va Responsive uchun)
 // ==========================================
 .wrap
     width: 100%
-    max-width: 1250px
+    max-width: 1300px
     margin: 0 auto
-    padding: 90px 0px
+    padding: 0 10px
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
+
+    &.stats__container
+        padding: 0 20px
 
 // ==========================================
 // Hero Styles (Sass Indented Syntax)
@@ -36,9 +39,9 @@ $transition: all 0.3s ease
     flex-direction: column
     align-items: center
     justify-content: center
-    padding: clamp(40px, 6vh, 80px) 0
+    padding: clamp(100px, 8vh, 100px) 0
     overflow: hidden
-    gap: clamp(30px, 5vh, 50px) // Hero bilan stats orasidagi masofa avtomatik moslashadi
+    gap: clamp(30px, 4vh, 50px)
 
     &__decor
         position: absolute
@@ -78,7 +81,7 @@ $transition: all 0.3s ease
         margin-bottom: 12px
 
     &__title
-        font-size: clamp(2.2rem, 3.5vw, 3.4rem)
+        font-size: clamp(2rem, 3.5vw, 3.4rem)
         line-height: 1.2
         font-weight: 700
         color: $text-color
@@ -91,7 +94,7 @@ $transition: all 0.3s ease
             border-radius: 4px
 
     &__lead
-        font-size: clamp(1rem, 1.1vw, 1.15rem)
+        font-size: clamp(0.95rem, 1.1vw, 1.15rem)
         line-height: 1.6
         color: $text-light
         margin-bottom: 32px
@@ -101,6 +104,12 @@ $transition: all 0.3s ease
         display: flex
         flex-wrap: wrap
         gap: 16px
+        width: 100%
+
+        @media (max-width: 480px)
+            flex-direction: column
+            .btn
+                width: 100%
 
     &__visual
         position: relative
@@ -130,15 +139,26 @@ $transition: all 0.3s ease
         border: 1px solid rgba($tan, 0.3)
         z-index: 2
 
+        @media (max-width: 480px)
+            bottom: 10px
+            left: 10px
+            padding: 10px 16px
+
         &-num
             font-size: 1.6rem
             font-weight: 800
             color: color.adjust($tan, $lightness: -20%)
 
+            @media (max-width: 480px)
+                font-size: 1.3rem
+
         &-label
             font-size: 0.85rem
             color: $text-light
             text-transform: lowercase
+
+            @media (max-width: 480px)
+                font-size: 0.75rem
 
 // ==========================================
 // Buttons
@@ -174,7 +194,7 @@ $transition: all 0.3s ease
             transform: translateY(-2px)
 
 // ==========================================
-// Stats Styles (Bitta section ichida)
+// Stats Styles
 // ==========================================
 .stats__container
     width: 100%
@@ -192,7 +212,10 @@ $transition: all 0.3s ease
         gap: 25px
         width: 100%
 
-        @media (min-width: 768px)
+        @media (min-width: 576px)
+            grid-template-columns: repeat(2, 1fr)
+
+        @media (min-width: 992px)
             grid-template-columns: repeat(4, 1fr)
 
     &__item
@@ -203,7 +226,7 @@ $transition: all 0.3s ease
         position: relative
         padding: 10px 20px
 
-        @media (min-width: 768px)
+        @media (min-width: 992px)
             &:not(:last-child)::after
                 content: ''
                 position: absolute

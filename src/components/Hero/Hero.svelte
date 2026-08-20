@@ -45,7 +45,7 @@
     </div>
   </div>
 
-  <!-- Stats (Statistika) qismi endi shu yerda, bitta section ichida -->
+  <!-- Stats (Statistika) qismi -->
   <div class="wrap stats__container">
     <div class="stats__grid">
       <div class="stats__item">
