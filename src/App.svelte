@@ -15,7 +15,7 @@
   <About />
   <Product />
   <Format />
-  <WhyUs/>
+  <WhyUs /> 
   <Gallery />
   <Contact />
 </main>

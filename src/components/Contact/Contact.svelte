@@ -1,15 +1,15 @@
 <script lang="ts">
-  import './Contact.sass'
+  import './Contact.sass';
 
-
-  let selectedSize = 'L';
-  let selectedColor = '#8B6B58';
-  let selectedColorName = 'Олтин';
+  // --- CONSTRUCTOR STATE ---
+  let selectedSize = $state('L');
+  let selectedColor = $state('#8B6B58');
+  let selectedColorName = $state('Олтин');
 
   const sizeOptions = [
     { id: 'S', label: 'S', dimensions: '15×19×8 см' },
     { id: 'M', label: 'M', dimensions: '23×27×10 см' },
-    { id: 'L', label: 'L', dimensions: '28×36×13 см' },
+    { id: 'L', label: 'L', dimensions: '28×36×13 см' }
   ];
 
   const colorPalette = [
@@ -24,15 +24,15 @@
     { name: 'Бордовый', hex: '#7A2E3B' },
     { name: 'Терракотовый', hex: '#D47C2F' },
     { name: 'Черный', hex: '#1C1C1C' },
-    { name: 'Молочный', hex: '#F7F4EE' },
+    { name: 'Молочный', hex: '#F7F4EE' }
   ];
 
-  let name = '';
-  let phone = '+998 ';
-  let quantity = '';
-  let comment = '';
-  let logoFile: File | null = null;
-  let logoPreview: string | null = null;
+  let name = $state('');
+  let phone = $state('+998 ');
+  let quantity = $state('');
+  let comment = $state('');
+  let logoFile = $state<File | null>(null);
+  let logoPreview = $state<string | null>(null);
 
   function handleColorSelect(color: { name: string; hex: string }) {
     selectedColor = color.hex;
@@ -58,75 +58,138 @@
       comment,
       logoFile
     };
-    console.log('Данные заказа:', orderData);
+    console.log('Order Data:', orderData);
     alert('Запрос успешно отправлен!');
   }
 </script>
 
-<section class="contact-section">
-  <div class="contact-container">
-    
-    <!-- Левая колонка: Конструктор дизайна -->
-    <div class="card design-card">
-      <div class="section-header">
+<section class="cnt-section">
+  <div class="cnt-container">
+    <!-- LEFT: CONSTRUCTOR -->
+    <div class="cnt-card cnt-design-card">
+      <div class="cnt-section-header">
         <h2>Создайте свой дизайн</h2>
         <p>Выберите размер и цвет, загрузите логотип — здесь отобразится эскиз вашей подарочной упаковки.</p>
       </div>
 
-      <div class="preview-box" style="background-color: {selectedColor}12;">
-        <div class="mockup-bag" style="background-color: {selectedColor};">
-          {#if logoPreview}
-            <img src={logoPreview} alt="Логотип" class="uploaded-logo" />
-          {:else}
-            <span class="placeholder-text">Ваш логотип</span>
-          {/if}
+      <!-- DIE-CUT ESKIZ PREVIEW -->
+      <div class="cnt-preview-box">
+        <div class="cnt-die-cut-container">
+          <svg class="cnt-die-cut-svg" viewBox="0 0 1000 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="920" height="660" fill={selectedColor} opacity="0.15" rx="4" />
+            
+            <g stroke="#2b2623" stroke-width="1.5" fill="none">
+              <rect x="20" y="20" width="920" height="660" stroke-width="2" />
+              <line x1="480" y1="20" x2="480" y2="680" />
+              <line x1="20" y1="100" x2="940" y2="100" stroke-dasharray="5 5" />
+              <line x1="120" y1="20" x2="120" y2="680" stroke-dasharray="5 5" />
+              <line x1="590" y1="20" x2="590" y2="680" stroke-dasharray="5 5" />
+              <line x1="20" y1="530" x2="940" y2="530" stroke-dasharray="5 5" />
+              <line x1="20" y1="530" x2="120" y2="680" stroke-dasharray="3 3" />
+              <line x1="120" y1="530" x2="20" y2="680" stroke-dasharray="3 3" />
+              <line x1="480" y1="530" x2="590" y2="680" stroke-dasharray="3 3" />
+              <line x1="590" y1="530" x2="480" y2="680" stroke-dasharray="3 3" />
+              <circle cx="230" cy="60" r="4" fill="#ffffff" />
+              <circle cx="370" cy="60" r="4" fill="#ffffff" />
+              <circle cx="700" cy="60" r="4" fill="#ffffff" />
+              <circle cx="840" cy="60" r="4" fill="#ffffff" />
+            </g>
+
+            <!-- DYNAMIC LOGO & TEXT (Left Side) -->
+            <g transform="translate(300, 300) rotate(-90)">
+              {#if logoPreview}
+                <image href={logoPreview} x="-60" y="-80" width="120" height="80" preserveAspectRatio="xMidYMid meet" />
+              {:else}
+                <text x="0" y="-30" font-family="Georgia, serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#2b2623">
+                  LOGOTIP
+                </text>
+              {/if}
+              <text x="0" y="20" font-family="sans-serif" font-size="14" letter-spacing="3" text-anchor="middle" fill="#2b2623">
+                BRAND NAME
+              </text>
+              <text x="0" y="40" font-family="sans-serif" font-size="10" letter-spacing="1" text-anchor="middle" fill="#6e6761">
+                • FASHION BOUTIQUE •
+              </text>
+            </g>
+
+            <!-- DYNAMIC LOGO & TEXT (Right Side) -->
+            <g transform="translate(770, 300) rotate(-90)">
+              {#if logoPreview}
+                <image href={logoPreview} x="-60" y="-80" width="120" height="80" preserveAspectRatio="xMidYMid meet" />
+              {:else}
+                <text x="0" y="-30" font-family="Georgia, serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#2b2623">
+                  LOGOTIP
+                </text>
+              {/if}
+              <text x="0" y="20" font-family="sans-serif" font-size="14" letter-spacing="3" text-anchor="middle" fill="#2b2623">
+                BRAND NAME
+              </text>
+              <text x="0" y="40" font-family="sans-serif" font-size="10" letter-spacing="1" text-anchor="middle" fill="#6e6761">
+                • FASHION BOUTIQUE •
+              </text>
+            </g>
+
+            <!-- SIDE INFO TEXT -->
+            <g transform="translate(60, 300) rotate(-90)">
+              <text x="0" y="0" font-family="sans-serif" font-size="10" fill="#6e6761" text-anchor="middle">
+                {phone !== '+998 ' ? phone : '+998 90 123-45-67'} | @your_brand | website.uz
+              </text>
+            </g>
+            <g transform="translate(530, 300) rotate(-90)">
+              <text x="0" y="0" font-family="sans-serif" font-size="10" fill="#6e6761" text-anchor="middle">
+                {phone !== '+998 ' ? phone : '+998 90 123-45-67'} | @your_brand | website.uz
+              </text>
+            </g>
+          </svg>
         </div>
-        <div class="eskiz-badge">
-          <span class="badge-dot"></span> ЭСКИЗ — ПРИМЕРНЫЙ ВИД
+
+        <div class="cnt-eskiz-badge">
+          <span class="cnt-badge-dot"></span> ЭСКИЗ (DIE-CUT TEMPLATE)
         </div>
       </div>
 
-      <div class="control-group">
-        <span class="control-label">РАЗМЕР</span>
-        <div class="size-options">
+      <!-- CONTROLS -->
+      <div class="cnt-control-group">
+        <span class="cnt-control-label">РАЗМЕР</span>
+        <div class="cnt-size-options">
           {#each sizeOptions as size}
-            <button 
-              type="button" 
-              class="size-btn {selectedSize === size.id ? 'active' : ''}"
-              on:click={() => selectedSize = size.id}
+            <button
+              type="button"
+              class="cnt-size-btn {selectedSize === size.id ? 'active' : ''}"
+              onclick={() => (selectedSize = size.id)}
             >
-              <span class="size-letter">{size.id}</span>
-              <span class="size-dim">{size.dimensions}</span>
+              <span class="cnt-size-letter">{size.id}</span>
+              <span class="cnt-size-dim">{size.dimensions}</span>
             </button>
           {/each}
         </div>
       </div>
 
-      <div class="control-group">
-        <span class="control-label">Цвет / узор: <span class="selected-color-name">{selectedColorName}</span></span>
-        <div class="color-palette">
+      <div class="cnt-control-group">
+        <span class="cnt-control-label">Цвет / узор: <span class="cnt-selected-color-name">{selectedColorName}</span></span>
+        <div class="cnt-color-palette">
           {#each colorPalette as color}
-            <button 
+            <button
               type="button"
-              class="color-circle {selectedColor === color.hex ? 'selected' : ''}"
+              class="cnt-color-circle {selectedColor === color.hex ? 'selected' : ''}"
               style="background-color: {color.hex};"
               title={color.name}
-              on:click={() => handleColorSelect(color)}
+              onclick={() => handleColorSelect(color)}
             >
               {#if selectedColor === color.hex}
-                <span class="checkmark">✓</span>
+                <span class="cnt-checkmark">✓</span>
               {/if}
             </button>
           {/each}
         </div>
       </div>
 
-      <div class="control-group">
-        <span class="control-label">Логотип</span>
-        <label class="file-upload-box">
-          <input type="file" accept="image/png, image/jpeg" on:change={handleFileChange} hidden />
-          <div class="upload-icon">+</div>
-          <div class="upload-text">
+      <div class="cnt-control-group">
+        <span class="cnt-control-label">Логотип</span>
+        <label class="cnt-file-upload-box">
+          <input type="file" accept="image/png, image/jpeg" onchange={handleFileChange} hidden />
+          <div class="cnt-upload-icon">+</div>
+          <div class="cnt-upload-text">
             <strong>Нажмите для выбора файла</strong>
             <span>PNG или JPG, рекомендуется квадратный формат</span>
           </div>
@@ -134,77 +197,47 @@
       </div>
     </div>
 
-    <!-- Правая колонка: Форма заявки -->
-    <div class="card form-card">
-      <div class="form-title-mobile">
+    <!-- RIGHT: ORDER FORM -->
+    <div class="cnt-card cnt-form-card">
+      <div class="cnt-form-title-mobile">
         <h2>Оформление заказа</h2>
       </div>
-      <form on:submit={handleSubmit}>
-        
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">ИМЯ</label>
-            <input 
-              id="name" 
-              type="text" 
-              bind:value={name} 
-              placeholder="Ваше имя" 
-              required 
-            />
+      <form onsubmit={handleSubmit}>
+        <div class="cnt-form-row">
+          <div class="cnt-form-group">
+            <label for="cnt-name">ИМЯ</label>
+            <input id="cnt-name" type="text" bind:value={name} placeholder="Ваше имя" required />
           </div>
-          <div class="form-group">
-            <label for="phone">ТЕЛЕФОН</label>
-            <input 
-              id="phone" 
-              type="text" 
-              bind:value={phone} 
-              placeholder="+998 _ _ _ _ _ _ _" 
-              required 
-            />
+          <div class="cnt-form-group">
+            <label for="cnt-phone">ТЕЛЕФОН</label>
+            <input id="cnt-phone" type="text" bind:value={phone} placeholder="+998 _ _ _ _ _ _ _" required />
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="color-select">ЦВЕТ</label>
-            <select id="color-select" bind:value={selectedColor}>
+        <div class="cnt-form-row">
+          <div class="cnt-form-group">
+            <label for="cnt-color-select">ЦВЕТ</label>
+            <select id="cnt-color-select" bind:value={selectedColor}>
               {#each colorPalette as color}
                 <option value={color.hex}>{color.name}</option>
               {/each}
             </select>
           </div>
-          <div class="form-group">
-            <label for="quantity">КОЛИЧЕСТВО (ШТ)</label>
-            <input 
-              id="quantity" 
-              type="text" 
-              bind:value={quantity} 
-              placeholder="Например, 200 шт" 
-              required 
-            />
+          <div class="cnt-form-group">
+            <label for="cnt-quantity">КОЛИЧЕСТВО (ШТ)</label>
+            <input id="cnt-quantity" type="text" bind:value={quantity} placeholder="Например, 200 шт" required />
           </div>
         </div>
 
-        <div class="form-group full-width">
-          <label for="comment">КОММЕНТАРИЙ</label>
-          <textarea 
-            id="comment" 
-            rows="4" 
-            bind:value={comment} 
-            placeholder="Ваши дополнительные пожелания"
-          ></textarea>
+        <div class="cnt-form-group cnt-full-width">
+          <label for="cnt-comment">КОММЕНТАРИЙ</label>
+          <textarea id="cnt-comment" rows="4" bind:value={comment} placeholder="Ваши дополнительные пожелания"></textarea>
         </div>
 
-        <button type="submit" class="submit-btn">
+        <button type="submit" class="cnt-submit-btn">
           Отправить запрос
         </button>
-
       </form>
     </div>
-
   </div>
 </section>
-
-<style lang="scss">
-  @use './Contact.sass';
-</style>
