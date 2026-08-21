@@ -9,10 +9,10 @@
   ]
 
   const features = [
-    { icon: '♢', title: 'Mustahkam', text: 'va bardoshli' },
-    { icon: '⌁', title: 'Ekologik', text: 'toza material' },
-    { icon: '♡', title: 'Har qanday', text: 'sovg‘a uchun ideal' },
-    { icon: '✦', title: 'Chiroyli', text: 'zamonaviy dizayn' }
+    { icon: '♢', title: 'Прочный', text: 'и надежный' },
+    { icon: '⌁', title: 'Экологичный', text: 'чистый материал' },
+    { icon: '♡', title: 'Идеален', text: 'для любого подарка' },
+    { icon: '✦', title: 'Красивый', text: 'современный дизайн' }
   ]
 </script>
 
@@ -25,11 +25,11 @@
     <div class="fmt-content">
       <div class="fmt-eyebrow">
         <span class="fmt-eyebrow__icon">✦</span>
-        <span class="fmt-eyebrow__text">SIFAT VA ELEGANTLIK</span>
+        <span class="fmt-eyebrow__text">КАЧЕСТВО И ЭЛЕГАНТНОСТЬ</span>
       </div>
 
       <div class="fmt-title-wrap">
-        <h2 class="fmt-title-wrap__heading">O‘lchamlar</h2>
+        <h2 class="fmt-title-wrap__heading">Размеры</h2>
         <svg
           class="fmt-title-wrap__leaf"
           viewBox="0 0 80 80"
@@ -51,7 +51,7 @@
       </div>
 
       <p class="fmt-description">
-        Har bir dizayn uchta o‘lchamda ishlab chiqariladi — kichik sovg‘alardan tortib katta buyumlargacha.
+        Каждый дизайн производится в трех размерах — от небольших сувениров до крупных подарков.
       </p>
 
       <!-- SIZE TABLE -->
@@ -59,19 +59,19 @@
         <div class="fmt-sizes__header">
           <div class="fmt-sizes__heading">
             <span class="fmt-sizes__heading-icon">♧</span>
-            <span>O‘LCHAM</span>
+            <span>РАЗМЕР</span>
           </div>
           <div class="fmt-sizes__heading">
             <span class="fmt-sizes__heading-icon">↔</span>
-            <span>KENGLIGI</span>
+            <span>ШИРИНА</span>
           </div>
           <div class="fmt-sizes__heading">
             <span class="fmt-sizes__heading-icon">↕</span>
-            <span>BALANDLIGI</span>
+            <span>ВЫСОТА</span>
           </div>
           <div class="fmt-sizes__heading">
             <span class="fmt-sizes__heading-icon">◇</span>
-            <span>CHUQURLIGI</span>
+            <span>ГЛУБИНА</span>
           </div>
         </div>
 
@@ -82,13 +82,13 @@
                 <span>{item.size}</span>
               </div>
               <div class="fmt-sizes__value">
-                {item.width} <small>sm</small>
+                {item.width} <small>см</small>
               </div>
               <div class="fmt-sizes__value">
-                {item.height} <small>sm</small>
+                {item.height} <small>см</small>
               </div>
               <div class="fmt-sizes__value">
-                {item.depth} <small>sm</small>
+                {item.depth} <small>см</small>
               </div>
             </div>
           {/each}
@@ -105,9 +105,9 @@
         </div>
 
         <div class="fmt-quality-card__content">
-          <h3>Sifat & Mustahkamlik</h3>
+          <h3>Качество и Прочность</h3>
           <p>
-            Zich qog‘oz, mustahkam ip dastak va yuqori sifatli bosma. Har bir detal siz uchun.
+            Плотная бумага, прочные ручки-шнуры и высококачественная печать. Каждая деталь создана для вас.
           </p>
         </div>
 
@@ -126,8 +126,8 @@
       <div class="fmt-visual__badge">
         <span class="fmt-visual__badge-icon">◇</span>
         <span>
-          PREMIUM
-          <strong>DIZAYN</strong>
+          ПРЕМИУМ
+          <strong>ДИЗАЙН</strong>
         </span>
       </div>
 
@@ -174,28 +174,28 @@
     </div>
 
     <div class="fmt-premium-card__main">
-      <span class="fmt-premium-card__label">DIZAYN — SIFAT — NAFOSAT</span>
+      <span class="fmt-premium-card__label">ДИЗАЙН — КАЧЕСТВО — ИЗЯЩЕСТВО</span>
       <h3>
-        Har bir sumka — ehtiyotkorlik bilan yaratilgan <em>san’at asari.</em>
+        Каждый пакет — заботливо созданное <em>произведение искусства.</em>
       </h3>
     </div>
 
     <div class="fmt-premium-card__details">
       <div class="fmt-detail">
         <span class="fmt-detail__icon">✦</span>
-        <span>Yuqori sifatli<br />bosma</span>
+        <span>Высокое качество<br />печати</span>
       </div>
       <div class="fmt-detail">
         <span class="fmt-detail__icon">◇</span>
-        <span>Zich va mustahkam<br />qog‘oz asos</span>
+        <span>Плотная и прочная<br />бумажная основа</span>
       </div>
       <div class="fmt-detail">
         <span class="fmt-detail__icon">⌁</span>
-        <span>Mustahkam ip<br />dastak</span>
+        <span>Прочная ручка-<br />шнур</span>
       </div>
       <div class="fmt-detail">
         <span class="fmt-detail__icon">♡</span>
-        <span>Sevgi bilan<br />yaratilgan</span>
+        <span>Сделано с<br />любовью</span>
       </div>
     </div>
 
