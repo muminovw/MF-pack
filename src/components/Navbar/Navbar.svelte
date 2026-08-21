@@ -9,7 +9,6 @@
         { title: "Продукция", href: "#products" },
         { title: "Форматы", href: "#formats" },
         { title: "Галерея", href: "#gallery" },
-        { title: "Адрес", href: "#location" },
         { title: "Контакты", href: "#contact" },
     ];
 
