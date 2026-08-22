@@ -166,6 +166,8 @@
               <div class="available">
                 <span class="available-dot"></span>
                 В наличии
+
+
               </div>
 
               <button
