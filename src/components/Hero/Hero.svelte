@@ -8,7 +8,7 @@
     'Мы сами производим голографические и блестящие подарочные пакеты — оптом и в розницу для магазинов, торговых точек и мероприятий.';
 
   export let primaryBtn = { label: 'Узнать цены', href: '#contact' };
-  export let secondaryBtn = { label: 'Смотреть цвета', href: '#products' };
+  export let secondaryBtn = { label: 'Смотреть цвета', href: '#product' };
 
   export let imageAlt = 'Голографический подарочный пакет';
 
