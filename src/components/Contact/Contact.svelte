@@ -2,7 +2,6 @@
   import './Contact.sass';
   import emailjs from '@emailjs/browser';
 
-  // --- CONSTRUCTOR STATE ---
   let selectedSize = $state('L');
   let selectedColor = $state('#8B6B58');
   let selectedColorName = $state('Олтин');
@@ -28,7 +27,6 @@
     { name: 'Молочный', hex: '#F7F4EE' }
   ];
 
-  // --- FORM STATE ---
   let name = $state('');
   let phone = $state('+998 ');
   let quantity = $state('');
@@ -54,7 +52,6 @@
     event.preventDefault();
     isSubmitting = true;
 
-    // EmailJS ga yuboriladigan ma'lumotlar
     const templateParams = {
       name: name,
       phone: phone,
@@ -65,16 +62,13 @@
     };
 
     try {
-      // ⚠️ Quyidagi ID'larni o'zingizning EmailJS profilingizdagi ma'lumotlarga almashtiring
       const SERVICE_ID = 'service_ukkc6a5';
       const TEMPLATE_ID = 'template_txe570g';
       const PUBLIC_KEY = 'yrrqKAEMUbbpp5PgA';
 
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
-
       alert('Buyurtmangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog‘lanamiz.');
       
-      // Formani tozalash
       name = '';
       phone = '+998 ';
       quantity = '';
@@ -95,6 +89,7 @@
     <!-- LEFT: CONSTRUCTOR -->
     <div class="cnt-card cnt-design-card">
       <div class="cnt-section-header">
+        <div class="cnt-badge-top">PREMIUM CONSTRUCTOR</div>
         <h2>Создайте свой дизайн</h2>
         <p>Выберите размер и цвет, загрузите логотип — здесь отобразится эскиз вашей подарочной упаковки.</p>
       </div>
@@ -222,13 +217,27 @@
           </div>
         </label>
       </div>
+
+      <!-- QO'SHIMCHA PROFESSIONEL BLOCK (Bo'sh joy uchun) -->
+      <div class="cnt-extra-info-box">
+        <div class="cnt-extra-icon">🛡️</div>
+        <div>
+          <h4>Гарантия качества и экологии</h4>
+          <p>100% биоразлагаемые материалы, премиальная печать и надежная фурнитура для вашего бренда.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- RIGHT: ORDER FORM -->
+    <!-- RIGHT: ORDER FORM (STICKY & FIXED) -->
     <div class="cnt-card cnt-form-card">
       <div class="cnt-form-title-mobile">
         <h2>Оформление заказа</h2>
       </div>
+      <div class="cnt-form-header-desktop">
+        <h2>Оформление заказа</h2>
+        <p>Заполните данные для расчета стоимости и запуска тиража</p>
+      </div>
+
       <form onsubmit={handleSubmit}>
         <div class="cnt-form-row">
           <div class="cnt-form-group">
@@ -262,7 +271,12 @@
         </div>
 
         <button type="submit" class="cnt-submit-btn" disabled={isSubmitting}>
-          {isSubmitting ? 'Yuborilmoqda...' : 'Отправить запрос'}
+          {#if isSubmitting}
+            <span class="cnt-spinner"></span> Yuborilmoqda...
+          {:else}
+            <span>Отправить запрос</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          {/if}
         </button>
       </form>
     </div>
