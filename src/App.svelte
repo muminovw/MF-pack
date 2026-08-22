@@ -8,6 +8,7 @@
   import WhyUs from "./components/Whyus/WhyUs.svelte";
   
   import Contact from "./components/Contact/Contact.svelte";
+  import Footer  from './components/footer/Footer.svelte';
 
   let isLoading = true;
 
@@ -36,8 +37,8 @@
     <Product />
     <Format />
     <WhyUs /> 
-   
     <Contact />
+    <Footer/>
   </main>
 {/if}
 

@@ -1,0 +1,209 @@
+.mf-footer
+  position: relative
+  background-color: #2b1810
+  color: #f3efe6
+  padding: 80px 20px 30px
+  margin-top: 100px
+  overflow: hidden
+  font-family: inherit
+
+  // Orqa fondagi xira doiralar (Glassmorphism / Glow)
+  .footer-glow
+    position: absolute
+    border-radius: 50%
+    pointer-events: none
+    filter: blur(70px)
+    z-index: 1
+
+  .glow-one
+    top: -120px
+    left: -120px
+    width: 280px
+    height: 280px
+    background-color: #3d2317
+    opacity: 0.6
+
+  .glow-two
+    bottom: -100px
+    right: -100px
+    width: 240px
+    height: 240px
+    background-color: #8b5e3c
+    opacity: 0.25
+
+  // Asosiy konteyner (Max-width 1300px)
+  .footer-container
+    max-width: 1300px
+    margin: 0 auto
+    position: relative
+    z-index: 2
+
+  // Grid strukturasi
+  .footer-grid
+    display: grid
+    grid-template-columns: 2fr 1fr 1fr 1.5fr
+    gap: 40px
+    padding-bottom: 50px
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08)
+
+    @media (max-width: 992px)
+      grid-template-columns: 1fr 1fr
+      gap: 35px
+
+    @media (max-width: 576px)
+      grid-template-columns: 1fr
+      gap: 30px
+
+  .footer-col
+    display: flex
+    flex-direction: column
+    gap: 16px
+
+  // Logotip
+  .footer-logo
+    font-size: 32px
+    font-weight: 800
+    letter-spacing: -0.04em
+    color: #ffffff
+
+    span
+      color: #d1a075
+
+  .brand-desc
+    color: #d1c7bc
+    font-size: 14px
+    line-height: 1.65
+    margin: 0
+    max-width: 360px
+
+  // Ijtimoiy tarmoq tugmalari
+  .social-links
+    display: flex
+    gap: 10px
+    margin-top: 6px
+
+    .social-icon
+      width: 38px
+      height: 38px
+      border-radius: 50%
+      background-color: rgba(255, 255, 255, 0.03)
+      border: 1px solid rgba(255, 255, 255, 0.08)
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #d1c7bc
+      font-size: 12px
+      font-weight: 600
+      text-decoration: none
+      transition: all 0.25s ease
+
+      &:hover
+        background-color: #d1a075
+        border-color: #d1a075
+        color: #2b1810
+        transform: translateY(-2px)
+
+  // Sarlavhalar
+  .col-title
+    font-size: 15px
+    font-weight: 600
+    color: #ffffff
+    text-transform: uppercase
+    letter-spacing: 0.06em
+    margin: 0 0 6px 0
+
+  // Havolalar ro'yxati
+  .footer-links
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+    gap: 12px
+
+    li
+      a
+        color: #d1c7bc
+        font-size: 14px
+        text-decoration: none
+        transition: color 0.2s ease, padding-left 0.2s ease
+        display: inline-block
+
+        &:hover
+          color: #ffffff
+          padding-left: 4px
+
+  // Obuna qismi
+  .newsletter-text
+    color: #d1c7bc
+    font-size: 13px
+    line-height: 1.5
+    margin: 0
+
+  .newsletter-form
+    display: flex
+    margin-top: 4px
+    background-color: #1e110b
+    border-radius: 10px
+    border: 1px solid rgba(255, 255, 255, 0.08)
+    overflow: hidden
+    transition: border-color 0.2s ease
+
+    &:focus-within
+      border-color: #d1a075
+
+    input
+      width: 100%
+      background: transparent
+      border: none
+      padding: 12px 16px
+      color: #ffffff
+      font-size: 14px
+      outline: none
+
+      &::placeholder
+        color: #736254
+
+    button
+      background-color: #d1a075
+      border: none
+      padding: 0 18px
+      color: #2b1810
+      cursor: pointer
+      display: flex
+      align-items: center
+      justify-content: center
+      transition: background-color 0.2s ease
+
+      &:hover
+        background-color: #e0bba0
+
+      svg
+        stroke: #2b1810
+
+  // Pastki copyright qismi
+  .footer-bottom
+    padding-top: 30px
+    margin-top: 30px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    gap: 20px
+    font-size: 13px
+    color: #9c9183
+
+    p
+      margin: 0
+
+    .bottom-links
+      display: flex
+      gap: 24px
+
+      a
+        color: #9c9183
+        text-decoration: none
+        transition: color 0.2s ease
+
+        &:hover
+          color: #d1a075

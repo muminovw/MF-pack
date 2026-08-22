@@ -246,3 +246,237 @@ $bp-mobile: 480px
 
   // &:hover
     // background: lighten($text-dark, 15%)
+    
+
+    .site-footer
+  position: relative
+  background-color: #2b1810
+  color: #f3efe6
+  overflow: hidden
+  padding-top: 4rem // pt-16
+  padding-bottom: 2rem // pb-8
+  margin-top: 5rem // mt-20
+
+  // Orqa fondagi dekorativ nurlar (Blur effektlar)
+  .absolute
+    position: absolute
+    border-radius: 9999px
+
+  .blur-3xl
+    filter: blur(64px)
+
+  .blur-2xl
+    filter: blur(40px)
+
+  .glow-1
+    top: -10rem
+    left: -10rem
+    width: 20rem
+    height: 20rem
+    background-color: #3d2317
+    opacity: 0.5
+
+  .glow-2
+    top: 5rem
+    right: -5rem
+    width: 15rem
+    height: 15rem
+    background-color: #8b5e3c
+    opacity: 0.3
+
+  // Asosiy konteyner (max-width: 1300px talabingizga moslab cheklangan)
+  .container
+    max-width: 1300px
+    margin-left: auto
+    margin-right: auto
+    padding-left: 1.5rem // px-6
+    padding-right: 1.5rem
+    position: relative
+    z-index: 10
+
+  // Grid tizimi
+  .footer-grid
+    display: grid
+    grid-template-columns: 1fr
+    gap: 3rem // gap-12
+    margin-bottom: 4rem // mb-16
+
+    @media (min-width: 768px)
+      grid-template-columns: repeat(5, minmax(0, 1fr))
+
+    .col-span-2
+      @media (min-width: 768px)
+        grid-column: span 2 / span 2
+
+  // Umumiy elementlar
+  .flex
+    display: flex
+
+  .flex-col
+    flex-direction: column
+
+  .items-center
+    align-items: center
+
+  .justify-between
+    justify-content: space-between
+
+  .gap-3
+    gap: 0.75rem
+
+  .gap-4
+    gap: 1rem
+
+  .gap-6
+    gap: 1.5rem
+
+  .mt-2
+    margin-top: 0.5rem
+
+  .mt-3
+    margin-top: 0.75rem
+
+  .mt-8
+    margin-top: 2rem
+
+  // Logotip va matnlar
+  .logo
+    font-size: 2.25rem // text-4xl
+    font-weight: 800 // font-extrabold
+    letter-spacing: -0.05em // tracking-tighter
+    color: #ffffff
+
+    span
+      color: #d1a075
+
+  .desc
+    color: #d1c7bc
+    font-size: 0.875rem // text-sm
+    line-height: 1.625
+    max-width: 28rem // max-w-md
+    margin: 0
+
+  .desc-xs
+    color: #d1c7bc
+    font-size: 0.75rem // text-xs
+    margin: 0
+
+  // Sarlavhalar
+  .heading
+    font-weight: 600
+    color: #ffffff
+    text-transform: uppercase
+    letter-spacing: 0.05em // tracking-wider
+    font-size: 0.875rem
+    margin: 0
+
+  // Ijtimoiy tarmoq tugmalari
+  .social-link
+    width: 2.25rem // w-9
+    height: 2.25rem // h-9
+    border-radius: 9999px
+    border: 1px solid #4e342e
+    display: flex
+    align-items: center
+    justify-content: center
+    text-decoration: none
+    transition: all 0.2s ease
+
+    span
+      color: #d1c7bc
+      font-size: 0.875rem
+      transition: color 0.2s ease
+
+    &:hover
+      background-color: #d1a075
+      border-color: #d1a075
+
+      span
+        color: #2b1810
+
+  // Ro'yxatlar va havolalar
+  .link-list
+    list-style: none
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+    gap: 0.75rem // gap-3
+
+    li
+      a
+        color: #d1c7bc
+        font-size: 0.875rem
+        text-decoration: none
+        transition: color 0.2s ease
+
+        &:hover
+          color: #ffffff
+
+  // Obuna formasi (Newsletter)
+  .newsletter-wrapper
+    position: relative
+
+    input
+      width: 100%
+      background-color: #1e110b
+      color: #ffffff
+      font-size: 0.875rem
+      padding: 0.75rem 1rem // py-3 px-4
+      border-radius: 0.5rem 0 0 0.5rem // rounded-l-lg
+      border: 1px solid #4e342e
+      border-right: none
+      outline: none
+      transition: ring 0.2s ease
+
+      &::placeholder
+        color: #6b5c4f
+
+      &:focus
+        border-color: #d1a075
+        box-shadow: 0 0 0 1px #d1a075
+
+    button
+      background-color: #d1a075
+      color: #2b1810
+      padding: 0.75rem 1.25rem // px-5 py-3
+      border-radius: 0 0.5rem 0.5rem 0 // rounded-r-lg
+      border: none
+      font-weight: 500
+      font-size: 0.875rem
+      cursor: pointer
+      transition: background-color 0.2s ease
+
+      &:hover
+        background-color: #e0bba0
+
+  // Pastki qism (Copyright va shartlar)
+  .footer-bottom
+    border-top: 1px solid #4e342e
+    padding-top: 2rem // pt-8
+    margin-top: 2rem // mt-8
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: center
+    gap: 1rem
+    font-size: 0.75rem // text-xs
+    color: #a89f91
+
+    @media (min-width: 768px)
+      flex-direction: row
+
+    p
+      margin: 0
+
+    .bottom-links
+      display: flex
+      gap: 1.5rem // gap-6
+
+      a
+        color: #a89f91
+        text-decoration: none
+        transition: color 0.2s ease
+
+        &:hover
+          color: #d1a075
