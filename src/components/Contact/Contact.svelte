@@ -1,5 +1,6 @@
 <script lang="ts">
   import './Contact.sass';
+  import emailjs from '@emailjs/browser';
 
   // --- CONSTRUCTOR STATE ---
   let selectedSize = $state('L');
@@ -27,12 +28,14 @@
     { name: 'Молочный', hex: '#F7F4EE' }
   ];
 
+  // --- FORM STATE ---
   let name = $state('');
   let phone = $state('+998 ');
   let quantity = $state('');
   let comment = $state('');
   let logoFile = $state<File | null>(null);
   let logoPreview = $state<string | null>(null);
+  let isSubmitting = $state(false);
 
   function handleColorSelect(color: { name: string; hex: string }) {
     selectedColor = color.hex;
@@ -47,23 +50,47 @@
     }
   }
 
-  function handleSubmit(event: SubmitEvent) {
+  async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-    const orderData = {
-      name,
-      phone,
+    isSubmitting = true;
+
+    // EmailJS ga yuboriladigan ma'lumotlar
+    const templateParams = {
+      name: name,
+      phone: phone,
       size: selectedSize,
       color: selectedColorName,
-      quantity,
-      comment,
-      logoFile
+      quantity: quantity,
+      comment: comment ? comment : 'Izoh yozilmagan'
     };
-    console.log('Order Data:', orderData);
-    alert('Запрос успешно отправлен!');
+
+    try {
+      // ⚠️ Quyidagi ID'larni o'zingizning EmailJS profilingizdagi ma'lumotlarga almashtiring
+      const SERVICE_ID = 'service_ukkc6a5';
+      const TEMPLATE_ID = 'template_txe570g';
+      const PUBLIC_KEY = 'yrrqKAEMUbbpp5PgA';
+
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      alert('Buyurtmangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog‘lanamiz.');
+      
+      // Formani tozalash
+      name = '';
+      phone = '+998 ';
+      quantity = '';
+      comment = '';
+      logoFile = null;
+      logoPreview = null;
+    } catch (error) {
+      console.error('EmailJS xatoligi:', error);
+      alert('Xatolik yuborishda xatolik yuz berdi. Iltimos, qaytadan urinib ko‘ring.');
+    } finally {
+      isSubmitting = false;
+    }
   }
 </script>
 
-<section class="cnt-section">
+<section class="cnt-section" id="contact">
   <div class="cnt-container">
     <!-- LEFT: CONSTRUCTOR -->
     <div class="cnt-card cnt-design-card">
@@ -234,8 +261,8 @@
           <textarea id="cnt-comment" rows="4" bind:value={comment} placeholder="Ваши дополнительные пожелания"></textarea>
         </div>
 
-        <button type="submit" class="cnt-submit-btn">
-          Отправить запрос
+        <button type="submit" class="cnt-submit-btn" disabled={isSubmitting}>
+          {isSubmitting ? 'Yuborilmoqda...' : 'Отправить запрос'}
         </button>
       </form>
     </div>

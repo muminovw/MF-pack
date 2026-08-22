@@ -1,7 +1,7 @@
 @use "sass:color"
 
 // ==========================================
-// Variables (O'zgaruvchilar) - Updated for #EFECE6
+// Variables (O'zgaruvchilar)
 // ==========================================
 $bg-main: #EFECE6
 $gold: #a67c52
@@ -14,34 +14,37 @@ $radius: 12px
 $transition: all 0.3s ease
 
 // ==========================================
-// Global Wrapper (Markazlashtirish va Responsive uchun)
+// Global Wrapper
 // ==========================================
 .wrap
     width: 100%
     max-width: 1300px
     margin: 0 auto
-    padding: 30px 10px
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: center
+    padding: 0 20px
+    box-sizing: border-box
 
     &.stats__container
-        padding: 40px 20px 20px 20px
+        margin-top: 20px
+        padding: 30px
+        background-color: $bg-card
+        border-radius: $radius
+        border: 1px solid rgba($gold, 0.2)
+        box-shadow: 0 15px 35px rgba(45, 38, 33, 0.04)
 
 // ==========================================
-// Hero Styles (Sass Indented Syntax)
+// Hero Styles
 // ==========================================
 .hero
     position: relative
-    min-height: 110vh
+    min-height: 90vh
     display: flex
     flex-direction: column
     align-items: center
     justify-content: center
-    padding: clamp(80px, 6vh, 120px) 0
+    // Header bilan yopishib qolmasligi uchun tepadan joy tashladik (masalan, 100px-140px)
+    padding: clamp(100px, 19vh, 140px) 0 60px 0
     overflow: hidden
-    gap: clamp(30px, 4vh, 50px)
+    box-sizing: border-box
 
     &__decor
         position: absolute
@@ -55,15 +58,16 @@ $transition: all 0.3s ease
     &__grid
         display: grid
         grid-template-columns: 1fr
-        gap: clamp(30px, 4vw, 60px)
+        gap: 40px
         align-items: center
-        justify-content: center
         width: 100%
         position: relative
         z-index: 1
+        margin-bottom: 40px
 
         @media (min-width: 992px)
             grid-template-columns: 1.1fr 0.9fr
+            gap: 60px
 
     &__content
         display: flex
@@ -86,6 +90,7 @@ $transition: all 0.3s ease
         font-weight: 700
         color: $text-color
         margin-bottom: 20px
+        font-family: Georgia, 'Times New Roman', Times, serif
 
         em
             font-style: normal
@@ -125,7 +130,6 @@ $transition: all 0.3s ease
             height: auto
             border-radius: $radius
             object-fit: cover
-            // box-shadow: 0 20px 40px rgba(45, 38, 33, 0.08)
 
     &__badge
         position: absolute
@@ -142,27 +146,16 @@ $transition: all 0.3s ease
         border: 1px solid rgba($gold, 0.25)
         z-index: 2
 
-        @media (max-width: 480px)
-            bottom: 5px
-            left: 5px
-            padding: 12px 18px
-
         &-num
             font-size: 1.5rem
             font-weight: 800
             color: color.adjust($gold, $lightness: -15%)
-
-            @media (max-width: 480px)
-                font-size: 1.2rem
 
         &-label
             font-size: 0.8rem
             color: $text-light
             text-transform: lowercase
             letter-spacing: 0.3px
-
-            @media (max-width: 480px)
-                font-size: 0.7rem
 
 // ==========================================
 // Buttons
@@ -201,15 +194,6 @@ $transition: all 0.3s ease
 // ==========================================
 // Stats Styles
 // ==========================================
-.stats__container
-    width: 100%
-    background-color: $bg-card
-    border-radius: $radius
-    border: 1px solid rgba($gold, 0.2)
-    box-shadow: 0 15px 35px rgba(45, 38, 33, 0.04)
-    padding: 30px 20px
-    z-index: 1
-
 .stats
     &__grid
         display: grid
@@ -248,6 +232,7 @@ $transition: all 0.3s ease
         margin-bottom: 6px
 
     &__label
+        padding: 0
         font-size: 0.85rem
         color: $text-light
         text-transform: lowercase

@@ -6,9 +6,9 @@
 
     const navItems = [
         { title: "О компании", href: "#about" },
-        { title: "Продукция", href: "#products" },
-        { title: "Форматы", href: "#formats" },
-        { title: "Галерея", href: "#gallery" },
+        { title: "Продукция", href: "#product" },
+        { title: "Форматы", href: "#format" },
+        // { title: "Галерея", href: "#gallery" },
         { title: "Контакты", href: "#contact" },
     ];
 
@@ -58,14 +58,14 @@
         <div class="nav-right">
             <!-- SOCIALS -->
             <div class="socials">
-                <a href="https://instagram.com/yaltiroq.uz" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
+                <a href="https://instagram.com/glamour.uz" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                         <rect x="3" y="3" width="18" height="18" rx="5" />
                         <circle cx="12" cy="12" r="4" />
                         <circle cx="17.2" cy="6.8" r="1" />
                     </svg>
                 </a>
-                <a href="https://t.me/yaltiroq_uz" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="social-link">
+                <a href="https://t.me/Mafia_0010" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="social-link">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                         <path d="M21 4L2.5 11.2c-.9.35-.9 1.65.02 1.98l4.6 1.65 1.8 5.6c.28.86 1.36 1.1 1.98.45l2.6-2.7 4.7 3.5c.75.56 1.83.16 2.03-.75L22 4.7c.18-.85-.65-1.55-1.4-1.2z" />
                         <path d="M8.9 14.6L18 6.8" />

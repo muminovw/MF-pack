@@ -57,7 +57,7 @@
   }
 </script>
 
-<section class="products-section">
+<section class="products-section" id="product">
   <div class="background-decoration decoration-one"></div>
   <div class="background-decoration decoration-two"></div>
 

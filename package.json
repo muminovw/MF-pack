@@ -13,5 +13,8 @@
     "sass": "^1.102.0",
     "svelte": "^5.56.8",
     "vite": "^8.2.0"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1"
   }
 }
